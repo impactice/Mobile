@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="uTF-8" ?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top" >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        android:textSize="30sp"
+        android:gravity="left"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이름: 홍길동\n프로그래밍 능력: Java(중), Python(상)\n국적: 대한민국\n연락처: gdhong@example.com\n"
+        android:textSize="20sp"
+        android:gravity="left"/>
+
+
+
+</LinearLayout>
