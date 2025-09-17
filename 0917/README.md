@@ -323,7 +323,44 @@ public class MainActivity extends AppCompatActivity {
 Add와 Optimize 두개 체크하고 ok누르기 
 <img width="988" height="727" alt="image" src="https://github.com/user-attachments/assets/0636a20d-e0c4-4eec-a968-ef115048102a" />
 
+----------------------------------------------------------------------------------------
+<img width="750" height="565" alt="image" src="https://github.com/user-attachments/assets/dbb13da8-67d6-4593-8ff1-d3e11fab1358" />
+MainActivity.java
+```
+package com.example.sample1;
 
+import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+// package 문, import 문 생략
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        LinearLayout ll = new LinearLayout(this);
+        TextView tv1 = new TextView(this);
+        TextView tv2 = new TextView(this);
+        ll.setOrientation(LinearLayout.VERTICAL);
+        ll.setGravity(Gravity.TOP);
+        tv1.setText("Test");
+        tv1.setTextSize(30);
+        tv1.setGravity(Gravity.LEFT);
+        tv2.setText("이름: 홍길동\n프로그래밍 능력: Java(중), Python(상)\n국적: 대한민국\n연락처: gdhong@example.com\n");
+        tv2.setTextSize(20);
+        tv2.setGravity(Gravity.LEFT);
+        ll.addView(tv1);
+        ll.addView(tv2);
+        setContentView(ll);
+
+    }
+}
+```
 
 
 
