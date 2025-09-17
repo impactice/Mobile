@@ -320,7 +320,7 @@ public class MainActivity extends AppCompatActivity {
 <img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/eae2e6ee-1be3-4dd4-ab74-eef79b073909" />
 
 --------------------------------------------------------------------------------------
-Add~와 Optimize~ 두개 체크하고 ok누르기 
+Add와 Optimize 두개 체크하고 ok누르기 
 <img width="988" height="727" alt="image" src="https://github.com/user-attachments/assets/0636a20d-e0c4-4eec-a968-ef115048102a" />
 
 
