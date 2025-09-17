@@ -250,12 +250,79 @@ public class MainActivity extends AppCompatActivity {
 ```
 <img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/0d4845e8-5702-4262-8eea-51927fbb4a21" />
 
+설명 
+기본적인 흐름(기본적인 틀)
+MainActivity.java
+```
+package com.example.sample1;
 
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+// package 문, import 문 생략
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        LinearLayout ll = new LinearLayout(this);
+        TextView tv1 = new TextView(this);
+        TextView tv2 = new TextView(this);
+        ll.addView(tv1);
+        ll.addView(tv2);
+        setContentView(ll);
+
+    }
+}
+```
+
+MainActivity.java
+```
+package com.example.sample1;
+
+import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+// package 문, import 문 생략
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        LinearLayout ll = new LinearLayout(this);
+        TextView tv1 = new TextView(this);
+        ll.setOrientation(LinearLayout.VERTICAL);
+        ll.setGravity(Gravity.CENTER);
+        tv1.setText("안녕하세요");
+        tv1.setTextSize(30);
+        tv1.setGravity(Gravity.CENTER);
+        TextView tv2 = new TextView(this);
+        tv2.setText("반갑습니다");
+        tv2.setTextSize(30);
+        tv2.setGravity(Gravity.CENTER);
+        ll.addView(tv1);
+        ll.addView(tv2);
+        setContentView(ll);
+
+    }
+}
+```
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/eae2e6ee-1be3-4dd4-ab74-eef79b073909" />
 
 --------------------------------------------------------------------------------------
-<img width="988" height="727" alt="image" src="https://github.com/user-attachments/assets/0636a20d-e0c4-4eec-a968-ef115048102a" />
 Add~와 Optimize~ 두개 체크하고 ok누르기 
+<img width="988" height="727" alt="image" src="https://github.com/user-attachments/assets/0636a20d-e0c4-4eec-a968-ef115048102a" />
+
 
 
 
