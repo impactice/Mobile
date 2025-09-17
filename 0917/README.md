@@ -67,3 +67,80 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 ---------------------------------------------------------------------------------------------------------------
+
+activity_main.xml (수정)
+```
+<?xml version="1.0" encoding="uTF-8" ?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="경성이"
+        android:textSize="30sp"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="오리"
+        android:textSize="30sp"
+        android:gravity="center"/>
+
+</LinearLayout>
+
+```
+<img width="467" height="951" alt="image" src="https://github.com/user-attachments/assets/f60e9955-cf12-4dd6-a6e0-3e5a64508983" />
+
+activity_main.xml (수정)
+```
+<?xml version="1.0" encoding="uTF-8" ?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="경성이"
+        android:textSize="30sp"
+        android:gravity="left"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="오리"
+        android:textSize="30sp"
+        android:gravity="right"/>
+
+
+</LinearLayout>
+
+```
+<img width="519" height="987" alt="image" src="https://github.com/user-attachments/assets/eb360a93-9f2d-4c98-acaa-da5953c6775e" />
+
+
+
+
+
+<img width="748" height="566" alt="image" src="https://github.com/user-attachments/assets/89b2cd18-2abd-4de4-a1e2-ff0df2a3d161" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
