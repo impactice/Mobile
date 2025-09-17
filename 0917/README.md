@@ -325,6 +325,7 @@ Add와 Optimize 두개 체크하고 ok누르기
 
 ----------------------------------------------------------------------------------------
 <img width="750" height="565" alt="image" src="https://github.com/user-attachments/assets/dbb13da8-67d6-4593-8ff1-d3e11fab1358" />
+
 MainActivity.java
 ```
 package com.example.sample1;
