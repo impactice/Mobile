@@ -140,7 +140,8 @@ activity_main.xml (수정)
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="top" >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -177,13 +178,84 @@ activity_main.xml (수정)
 ```
 - 보라색 박스는 타이틀바는 아직 안 배운 개념이여서 구현x
 
+- 수업에 한거 
+activity_main.xml (수정) 
+```
+<?xml version="1.0" encoding="uTF-8" ?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top" >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        android:textSize="30sp"
+        android:gravity="left"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이름: 홍길동\n프로그래밍 능력: Java(중), Python(상)\n국적: 대한민국\n연락처: gdhong@example.com\n"
+        android:textSize="20sp"
+        android:gravity="left"/>
+
+
+
+</LinearLayout>
+
+```
+----------------------------------------------------------------------------------------------
+<img width="750" height="566" alt="image" src="https://github.com/user-attachments/assets/bc404225-fdc9-47ce-8b57-e33e3a1d1459" />
+
+MainActivity.java 
+```
+package com.example.sample1;
+
+import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+// package 문, import 문 생략
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        LinearLayout linearLayout = new LinearLayout(this);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.setGravity(Gravity.CENTER);
+
+        TextView textView1 = new TextView(this);
+        textView1.setText("안녕하세요");
+        textView1.setTextSize(30);
+        textView1.setGravity(Gravity.CENTER);
+
+        TextView textView2 = new TextView(this);
+        textView2.setText("반갑습니다");
+        textView2.setTextSize(30);
+        textView2.setGravity(Gravity.CENTER);
+
+        linearLayout.addView(textView1);
+        linearLayout.addView(textView2);
+
+        setContentView(linearLayout);
+    }
+}
+```
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/0d4845e8-5702-4262-8eea-51927fbb4a21" />
 
 
 
 
-
-
-
+--------------------------------------------------------------------------------------
+<img width="988" height="727" alt="image" src="https://github.com/user-attachments/assets/0636a20d-e0c4-4eec-a968-ef115048102a" />
+Add~와 Optimize~ 두개 체크하고 ok누르기 
 
 
 
