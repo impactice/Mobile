@@ -51,13 +51,13 @@ activity_main.xml (수정)
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="match_parent"  
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center">
     <TextView
         android:id="@+id/textview1"
-        android:layout_width="wrap_content"
+        android:layout_width="wrap_content" //이곳이 수정됨
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="안녕하세요"
@@ -69,3 +69,48 @@ activity_main.xml (수정)
 <img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/8fe702a3-2688-4800-9fdc-499bbce7758d" />
 
 ------------------------------------------------
+
+activity_main.xml (수정)
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"  
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"    // 이곳이 수정됨
+        android:gravity="center"
+        android:text="안녕하세요"
+        android:textSize="30sp"/>
+
+</LinearLayout>
+```
+
+글자에만 클릭이 됨
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/ecef9227-09cc-492b-92f2-d85b4a325481" />
+
+------------------------------------------------------------------
+
+activity_main.xml (수정)
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="match_parent" //이곳이 수정됨
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="안녕하세요"
+        android:textSize="30sp"/>
+
+</LinearLayout>
+```
+
+<img width="1919" height="1033" alt="image" src="https://github.com/user-attachments/assets/9807539f-fcd4-4c15-8a74-b48ffc6eacda" />
