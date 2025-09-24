@@ -51,13 +51,74 @@ activity_main.xml (수정)
 
 MainActivity.java (수정) 
 ```
+package com.example.project2;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        EditText et = findViewById(R.id.et);
+        Button bt= findViewById(R.id.bt);
+        TextView tv= findViewById(R.id.tv);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // et.getText();  // return 타입이 String이 아니라 Editable이다
+                String s= et.getText().toString(); // 해결법
+                if(s.length()<=0) return;
+                double w = Double.parseDouble(s)*0.3025;
+                tv.setText(w+" (평)");
+
+            }
+        });
+    }
+}
 ```
 
 
 activity_main.xml (수정) 
 ```
-
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal">
+    <EditText
+        android:id="@+id/et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="number"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:hint="제곱미터값을입력하세요" />
+    <Button
+        android:id="@+id/bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="평수계산"
+        android:textSize="30sp"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:hint="여기에평수결과표시됨"/>
+</LinearLayout>
 ```
 
 
