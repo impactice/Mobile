@@ -16,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView textview1 = findViewById(R.id.textview1);
-        textview1.setOnClickListener(new View.OnClickListener() {
+        textview1.setOnClickListener(new View.OnClickListener() { //인터페이스는 객체 생성을 할 수 없다 - 인터페이스는 추상 메서드만 가지고 있고, 구현이 없기 때문 
+
             @Override
             public void onClick(View v) {
                 textview1.setBackgroundColor(Color.GREEN);
@@ -48,9 +49,16 @@ activity_main.xml (수정)
 ---------------------------------------------------------------------------------------
 <img width="733" height="555" alt="image" src="https://github.com/user-attachments/assets/cac58a3b-db86-47f9-ba7b-1543b19765d5" />
 
+MainActivity.java (수정) 
+```
+
+```
 
 
+activity_main.xml (수정) 
+```
 
+```
 
 
 
