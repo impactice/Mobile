@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal">
+    <EditText
+        android:id="@+id/edittext_num1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="number"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:hint="첫번째수를입력하세요" />
+    <EditText
+        android:id="@+id/edittext_num2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="number"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:hint="두번째수를입력하세요" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/button_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="덧셈"
+            android:textSize="30sp"
+            android:layout_margin="10dp"/>
+        <Button
+            android:id="@+id/button_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="뺄셈"
+            android:textSize="30sp"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/textview_display"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:hint="여기에계산결과표시됨"/>
+</LinearLayout>
