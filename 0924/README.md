@@ -122,12 +122,118 @@ activity_main.xml (수정)
 ```
 
 
+<img width="1919" height="1025" alt="image" src="https://github.com/user-attachments/assets/bb6cad89-0314-434b-8d5c-d8dc9a122348" />
+
+-------------------------------------------------------------------------------------
+
+<img width="911" height="688" alt="image" src="https://github.com/user-attachments/assets/87e69788-c9c2-492d-bc74-227c47b01f6f" />
 
 
+MainActivity.java (수정) 
+```
+package com.example.project2;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 
+public class MainActivity extends AppCompatActivity  {
+    EditText edittext_num1, edittext_num2;
+    Button button_add, button_sub;
+    TextView textview_display;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        edittext_num1=findViewById(R.id.edittext_num1);
+        edittext_num2=findViewById(R.id.edittext_num2);
+        button_add=findViewById(R.id.button_add);
+        button_sub=findViewById(R.id.button_sub);
+        textview_display=findViewById(R.id.textview_display);
+        button_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int n1 = Integer.parseInt(edittext_num1.getText().toString());
+                int n2=Integer.parseInt(edittext_num2.getText().toString());
+                if(v.getId()==R.id.button_add) textview_display.setText(n1+n2+"");
+            }
+        });
+        button_sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int n1=Integer.parseInt(edittext_num1.getText().toString());
+                int n2=Integer.parseInt(edittext_num2.getText().toString());
+                if(v.getId()==R.id.button_sub) textview_display.setText(n1-n2+"");
+            }
+        });
+    }
 
+//    @Override
+//    public void onClick(View v) {
+//        // int n1=Integer.parseInt(edittext_num1.getText()); // 오류(getText() 반환자료형주의)
+//        int n1=Integer.parseInt(edittext_num1.getText().toString());
+//        int n2=Integer.parseInt(edittext_num2.getText().toString());
+//        if(v.getId()==R.id.button_add) textview_display.setText(n1+n2+"");
+//        if(v.getId()==R.id.button_sub) textview_display.setText(n1-n2+"");
+//    }
+}
+```
 
+activity_main.xml (수정) 
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal">
+    <EditText
+        android:id="@+id/edittext_num1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="number"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:hint="첫번째수를입력하세요" />
+    <EditText
+        android:id="@+id/edittext_num2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="number"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:hint="두번째수를입력하세요" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/button_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="덧셈"
+            android:textSize="30sp"
+            android:layout_margin="10dp"/>
+        <Button
+            android:id="@+id/button_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="뺄셈"
+            android:textSize="30sp"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <TextView
+        android:id="@제) 
+```
+
+```
 
 
