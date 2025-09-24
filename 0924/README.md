@@ -1,4 +1,5 @@
-저번꺼 복습
+저번꺼 복습  
+
 MainActivity.java (수정) 
 ```
 package com.example.project2;
