@@ -231,9 +231,61 @@ activity_main.xml (수정)
             android:layout_margin="10dp"/>
     </LinearLayout>
     <TextView
-        android:id="@제) 
+        android:id="@+id/textview_display"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:hint="여기에계산결과표시됨"/>
+</LinearLayout>
 ```
 
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/94f07b10-67a1-4361-a468-f722e254b158" />
+
+
+MainActivity.java (교제) 
 ```
+package com.example.project2;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    EditText edittext_num1, edittext_num2;
+    Button button_add, button_sub;
+    TextView textview_display;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        edittext_num1=findViewById(R.id.edittext_num1);
+        edittext_num2=findViewById(R.id.edittext_num2);
+        button_add=findViewById(R.id.button_add);
+        button_sub=findViewById(R.id.button_sub);
+        textview_display=findViewById(R.id.textview_display);
+        button_add.setOnClickListener(this);
+        button_sub.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        // int n1=Integer.parseInt(edittext_num1.getText()); // 오류(getText() 반환자료형주의)
+       int n1=Integer.parseInt(edittext_num1.getText().toString());
+        int n2=Integer.parseInt(edittext_num2.getText().toString());
+        if(v.getId()==R.id.button_add) textview_display.setText(n1+n2+"");
+        if(v.getId()==R.id.button_sub) textview_display.setText(n1-n2+"");
+    }
+}
+```
+
+activity_main.xml은 동일
+
+<img width="1918" height="1028" alt="image" src="https://github.com/user-attachments/assets/69a50e34-10a7-41ff-aeea-c35569728cdb" />
 
 
