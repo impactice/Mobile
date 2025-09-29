@@ -216,8 +216,89 @@ activity_main.xml (수정)
 
 MainActivity.java (수정) 
 ```
+package com.example.project2;
 
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TextView textview=new TextView(this);
+        textview.setText("안녕하세요");
+        textview.setTextSize(30);
+        textview.setGravity(Gravity.CENTER);
+        setContentView(textview);
+        textview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.setBackgroundColor(Color.GREEN);
+            }
+        });
+    }
+}
 ```
 
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/fd59a610-64cd-4dc8-b6e8-7d4793c7d322" />
+
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/9d5501f5-ba2f-4fa5-a1ad-8be898c7efdd" />
+
+```
+textview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.setBackgroundColor(Color.GREEN);
+            }
+        });
+```
+이 부분에서 
+```
+textview.setOnClickListener(
+            textview.setOnClickListener( v -> v.setBackgroundColor(Color.GREEN));
+        );
+```
+이렇게 생략을 할 수 있음  
 
 
+MainActivity.java (수정) 
+```
+package com.example.project2;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TextView textview=new TextView(this);
+        textview.setText("안녕하세요");
+        textview.setTextSize(30);
+        textview.setGravity(Gravity.CENTER);
+        setContentView(textview);
+        // textview.setOnClickListener( (v) -> {v.setBackgroundColor(Color.GREEN);} );
+        // textview.setOnClickListener( v -> {v.setBackgroundColor(Color.GREEN);} );
+        // textview.setOnClickListener( (v) -> v.setBackgroundColor(Color.GREEN) );
+        textview.setOnClickListener( v -> v.setBackgroundColor(Color.GREEN));
+    }
+}
+```
+
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/2e3c00da-3039-4b1c-8484-af445883478f" />
+
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/7dcd7bc6-3255-43eb-8e91-0c15baecd8d5" />
+
+MainActivity.java (수정) 
+```
+
+```
