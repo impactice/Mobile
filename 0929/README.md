@@ -298,7 +298,4 @@ public class MainActivity extends AppCompatActivity{
 
 <img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/7dcd7bc6-3255-43eb-8e91-0c15baecd8d5" />
 
-MainActivity.java (수정) 
-```
 
-```
