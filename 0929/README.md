@@ -298,4 +298,10 @@ public class MainActivity extends AppCompatActivity{
 
 <img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/7dcd7bc6-3255-43eb-8e91-0c15baecd8d5" />
 
+------------------------------------
+생략 되는 코드 정리  
 
+​Java 람다(Lambda) 표현식을 이용한 코드 간소화
+​자바 8부터 도입된 람다(Lambda) 표현식을 사용하면, 특정 인터페이스를 구현하는 익명 클래스(Anonymous Inner Class) 코드를 매우 간결하고 직관적으로 바꿀 수 있습니다. 안드로이드 개발의 setOnClickListener가 대표적인 예시입니다.
+​1. 기존 코드 (익명 클래스 방식)
+​과거에는 아래와 같이 View.OnClickListener 인터페이스를 직접 구현하는 익명 클래스 객체를 생성하여 인자로 넘겨주었습니다.
