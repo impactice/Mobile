@@ -442,8 +442,3 @@ public class MainActivity extends AppCompatActivity {
 <img width="1918" height="1028" alt="image" src="https://github.com/user-attachments/assets/752fe64f-9b08-49a6-b36a-d52ecb182b13" />
 
 
-activity_main.xml (수정) 
-```
-
-```
-
