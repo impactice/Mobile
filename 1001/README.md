@@ -95,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+<img width="642" height="487" alt="image" src="https://github.com/user-attachments/assets/90478c9e-3665-4b34-8d35-d64cdab15369" />
+
+
+
 
 MainActivity.java (수정)
 ```
