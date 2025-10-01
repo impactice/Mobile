@@ -393,6 +393,26 @@ activity_main.xml (수정)
 
 <img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/e27ea119-5d0d-49d8-a5a3-6dcb2c640556" />
 
+# Android Layout 속성: `match_parent` vs `wrap_content`
+
+안드로이드에서 뷰(View)의 크기를 설정할 때 자주 사용하는 두 가지 속성인 `match_parent`와 `wrap_content`의 차이점을 정리했습니다.
+
+---
+
+## 📐 match_parent
+
+- **의미**: 부모 뷰의 크기와 **같게** 설정
+- **동작**: 해당 뷰가 부모의 크기를 **가득 채움**
+- **사용 예시**: 화면 전체를 차지하는 배경, 전체 너비를 사용하는 버튼
+
+```xml
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+```
+
+
+
+
 MainActivity.java (수정)
 ```
 
