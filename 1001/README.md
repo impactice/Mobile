@@ -307,6 +307,8 @@ activity_main.xml (수정)
 </LinearLayout>
 
 ```
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/d31f58be-302c-43ac-9685-851e942964ad" />
+
 <img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/e16b13cb-9e42-4e48-9276-fa24ea20d2ec" />
 
 
