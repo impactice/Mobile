@@ -157,6 +157,11 @@ activity_main.xml (수정)
 
 ```
 
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/43e52349-8b02-4097-9bb7-83447f60d28e" />
+
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/b00ed70c-2b43-48c4-ac39-487c773dc827" />
+
+
 <img width="644" height="487" alt="image" src="https://github.com/user-attachments/assets/72fb5674-4b28-465a-a12b-4f5402baacb9" />
 
 
