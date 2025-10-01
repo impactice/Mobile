@@ -394,6 +394,8 @@ activity_main.xml (수정)
 <img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/e27ea119-5d0d-49d8-a5a3-6dcb2c640556" />
 
 
+<img width="891" height="677" alt="image" src="https://github.com/user-attachments/assets/0a320743-e5c1-430d-86f2-f1465a1c25eb" />
+
 
 MainActivity.java (수정)
 ```
