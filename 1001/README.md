@@ -102,10 +102,58 @@ public class MainActivity extends AppCompatActivity {
 
 MainActivity.java (수정)
 ```
+package com.example.project2;
 
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button bt = findViewById(R.id.bt);
+        TextView tv = findViewById(R.id.tv);
+        bt.setOnClickListener(v -> tv.setText("정답: 서울"));
+    }
+
+
+}
 ```
+
 activity_main.xml (수정) 
 ```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal">
+
+    <Button
+        android:id="@+id/bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:text="문제 1: 대한민국 수도는?"
+        android:textSize="30sp" />
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:hint="여기에 답안이 표시된다"/>
+
+
+</LinearLayout>
 
 ```
 
