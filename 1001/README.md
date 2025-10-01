@@ -236,3 +236,78 @@ activity_main.xml (수정)
 
 ``` 
 
+이거는 람다식으로 추상화  
+
+MainActivity.java (수정)
+```
+package com.example.project2;
+
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        EditText et = findViewById(R.id.et);
+        Button bt = findViewById(R.id.bt);
+        TextView tv = findViewById(R.id.tv);
+        bt.setOnClickListener(v -> {String s =et.getText().toString(); tv.setText(s.length()+"");});
+        
+    }
+
+
+}
+```
+
+activity_main.xml (수정) 
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal">
+
+    <EditText
+        android:id="@+id/et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="여기에 텍스트를 입력하세요"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
+
+
+    <Button
+        android:id="@+id/bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:text="텍스트 길이 계산"
+        android:textSize="30sp" />
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:hint="여기에 답안이 표시된다"/>
+
+
+</LinearLayout>
+
+```
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/e16b13cb-9e42-4e48-9276-fa24ea20d2ec" />
+
+
+<img width="647" height="489" alt="image" src="https://github.com/user-attachments/assets/c6545aa9-c172-476a-b588-3e3333ca9b65" />
