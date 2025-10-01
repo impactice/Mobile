@@ -399,8 +399,48 @@ activity_main.xml (수정)
 
 MainActivity.java (수정)
 ```
+package com.example.project2;
 
+import android.graphics.Color;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TextView textview=new TextView(this);
+        textview.setText("터치하면 배경색이 변경됩니다.");
+        textview.setTextSize(25);
+        textview.setGravity(Gravity.CENTER);
+        setContentView(textview);
+        textview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Random random=new Random();
+                int color= Color.rgb(random.nextInt(256),random.nextInt(256),random.nextInt(256));
+                v.setBackgroundColor(color);
+                Log.i(TAG, "onClick: "+"Color value "+color);
+            }
+        });
+    }
+}
 ```
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/e0eebf78-f749-4cf0-9046-052d1913f91f" />
+
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/225aa0ce-6a3c-47e7-b4ce-3e166b7533b5" />
+
+<img width="1918" height="1028" alt="image" src="https://github.com/user-attachments/assets/752fe64f-9b08-49a6-b36a-d52ecb182b13" />
+
 
 activity_main.xml (수정) 
 ```
