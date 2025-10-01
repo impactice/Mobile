@@ -318,3 +318,13 @@ activity_main.xml (수정)
 
 
 <img width="647" height="489" alt="image" src="https://github.com/user-attachments/assets/c6545aa9-c172-476a-b588-3e3333ca9b65" />
+
+MainActivity.java (수정)
+```
+
+```
+
+activity_main.xml (수정) 
+```
+
+```
