@@ -215,6 +215,68 @@ public class MainActivity extends AppCompatActivity{
 
 ----------------------------------------------------------------
 
+<img width="889" height="669" alt="image" src="https://github.com/user-attachments/assets/13d53c45-39e0-4a79-adaa-ce996a4b3224" />
+
+viewGroup이 LinearLayout을 담을 수 있다 
+
+-------------------------------------------------------------------------------
+
+<img width="890" height="674" alt="image" src="https://github.com/user-attachments/assets/45245ca2-8758-4a50-8122-2c1784be9694" />
+
+
+MainActivity.java 
+
+```
+package com.example.project2;
+
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
+```
+
+activity_main.xml 
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFAB15"
+        android:text="  TextView1  "/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF00FF"
+        android:text="  TextView2  "/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00FFFF"
+        android:text="  TextView3  "/>
+</LinearLayout>
+```
+
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/1e2a8634-c1e2-40f8-9d5a-068bcad37adf" />
+
+
+
+
+------------------------------------------------------------------------------------------
+
+
 MainActivity.java 
 
 ```
