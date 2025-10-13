@@ -392,3 +392,7 @@ activity_main.xml
         android:text="  TextView3  " />
 </LinearLayout>
 ```
+
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/f82a2573-e0fb-464b-8be9-e89be2a0c99d" />
+
+
