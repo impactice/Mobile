@@ -165,6 +165,59 @@ public class MainActivity extends AppCompatActivity {
 MainActivity.java 
 
 ```
+package com.example.project2;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TextView textview=new TextView(this);
+        textview.setText("터치하면 배경색이 변경됩니다.");
+        textview.setTextSize(25);
+        textview.setGravity(Gravity.CENTER);
+        setContentView(textview);
+        textview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeColor(v);
+            }
+        });
+    }
+    private void changeColor(View v) {
+        Random random=new Random();
+        int color=Color.rgb(random.nextInt(256),random.nextInt(256),random.nextInt(256));
+        v.setBackgroundColor(color);
+        Toast.makeText( this, "Color value "+color, Toast.LENGTH_SHORT).show();
+        //Toast.makeText( MainActivity.this, "Color value "+color, Toast.LENGTH_SHORT).show();
+        //Toast.makeText( getApplicationContext(), "Color value "+color, Toast.LENGTH_SHORT).show();
+    }
+}
+
+```
+
+
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/592845aa-be49-4c30-846d-50d4e134a386" />
+
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/493f9df0-2627-4eb9-ad8f-de231c86a365" />
+
+
+----------------------------------------------------------------
+
+MainActivity.java 
+
+```
 
 ```
 
