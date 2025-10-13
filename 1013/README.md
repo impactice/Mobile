@@ -109,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
 
 ------------------------------------------------------------------------------------------
 
+안녕이라고 표시되게 하고 싶으면
+
 <img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/f59e7758-8e82-4186-b723-fab9b8eef089" />
 
 MainActivity.java 
