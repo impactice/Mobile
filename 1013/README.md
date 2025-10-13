@@ -108,6 +108,12 @@ public class MainActivity extends AppCompatActivity {
 <img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/acfa69c2-237b-42a7-8871-e8e6f18fb1b9" />
 
 
+MainActivity.java 
+
+```
+
+```
+
 activity_main.xml 
 
 ```
