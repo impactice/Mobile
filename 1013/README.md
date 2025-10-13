@@ -271,8 +271,74 @@ activity_main.xml
 
 <img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/1e2a8634-c1e2-40f8-9d5a-068bcad37adf" />
 
+------------------------------------------------
 
+이 코드 설명 
+```
+android:background="#FFAB15"
+```
+이 코드는 배경색 지정 
 
+팁으로는 
+
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/458e7bf8-61c1-4d20-b811-6963d524e918" />
+
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/c5522801-0325-48ed-9bb0-b63547375ec1" />
+
+MainActivity.java 
+
+```
+package com.example.project2;
+
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
+```
+
+activity_main.xml 
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#AAAAAA"
+        android:textSize="30sp"
+        android:text="안녕하세요"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFAB15"
+        android:text="  TextView1  "/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF00FF"
+        android:text="  TextView2  "/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00FFFF"
+        android:text="  TextView3  "/>
+</LinearLayout>
+```
+
+결과 
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/fbefba69-4e10-4e9b-a68b-85819c0aa78b" />
 
 ------------------------------------------------------------------------------------------
 
