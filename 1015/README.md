@@ -494,6 +494,22 @@ activity_main.xml
 
 <img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/77eb7959-31d0-4d9d-8874-7c0314caa450" />
 
+
+코드 설명 
+
+```
+android:id="@+id/edittext_email"
+```
+왜 여기에는 +가 없는 것인가? 그 이유는 id를 만드는 것이 아닌 만들어진 id를 참조하는 것이기 때문에
+```
+android:layout_below="@id/edittext_email"
+```
+
+
+
+
+
+
 -------------------------------------------------------------------------------------------
 
 03_이벤트 처리.pdf
@@ -616,7 +632,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-
+----------------------------------------------------------------------------------------
 
 
 
