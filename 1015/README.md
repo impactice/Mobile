@@ -386,6 +386,235 @@ activity_main.xml
 <img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/28674473-0182-414f-865a-934a4b9255e7" />
 
 
+-----------------------------------------------------------------------------------
+
+
+패스워드를 길게 하게 싶으면 (이 부분 변경)
+
+```
+EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:inputType="textPassword"
+        android:hint="패스워드"/>
+```
+
+activity_main.xml 
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="회원이름"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:inputType="textPassword"
+        android:hint="패스워드"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="회원email"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="회원정보"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="회원등록"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="메인"/>
+    </LinearLayout>
+</LinearLayout>
+``` 
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/ee3db159-1f6a-420d-be91-5942d25b3b9a" />
+
+
+----------------------------------------------------------------------------------------------------------
+
+<img width="896" height="682" alt="image" src="https://github.com/user-attachments/assets/933b5acc-1cf8-4d4b-926b-0c170ad2b430" />
+
+
+
+activity_main.xml 
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/edittext_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이메일"/>
+    <EditText
+        android:id="@+id/edittext_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edittext_email"
+        android:hint="패스워드"/>
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edittext_password"
+        android:layout_margin="10dp"
+        android:text="회원등록"/>
+    <Button
+        android:id="@+id/button_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edittext_password"
+        android:layout_toRightOf="@id/button_register"
+        android:layout_margin="10dp"
+        android:text="메인"/>
+</RelativeLayout>
+``` 
+
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/77eb7959-31d0-4d9d-8874-7c0314caa450" />
+
+-------------------------------------------------------------------------------------------
+
+03_이벤트 처리.pdf
+
+<img width="650" height="499" alt="image" src="https://github.com/user-attachments/assets/28ccc479-66b9-4f49-8947-4cac655648b7" />
+
+
+MainActivity.java 
+
+```
+
+package com.example.project2;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TextView textview=new TextView(this);
+        textview.setText("안녕하세요");
+        textview.setTextSize(30);
+        textview.setGravity(Gravity.CENTER);
+        setContentView(textview);
+        textview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.setBackgroundColor(Color.GREEN);
+            }
+        });
+    }
+}
+
+``` 
+
+이거는 시험에 나올 가능성이 높을 듯
+
+  
+
+MainActivity.java 
+
+```
+package com.example.project2;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TextView textview=new TextView(this);
+        textview.setText("안녕하세요");
+        textview.setTextSize(30);
+        textview.setGravity(Gravity.CENTER);
+        setContentView(textview);
+        textview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // v.setText("Bye"); // 이거 안됨
+                textview.setText("Bye"); // 이거는 됨
+                v.setBackgroundColor(Color.GREEN);
+                textview.setBackgroundColor(Color.GREEN);
+            }
+        });
+    }
+}
+
+```
+
+이 코드 사용법
+```
+v.setText("Bye");
+```
+
+
+MainActivity.java 
+
+```
+package com.example.project2;
+
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        TextView textview=new TextView(this);
+        textview.setText("안녕하세요");
+        textview.setTextSize(30);
+        textview.setGravity(Gravity.CENTER);
+        setContentView(textview);
+        textview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // v.setText("Bye"); // 이거 안됨
+                TextView tt = (TextView) v; // 타입을 캐스팅해서 바꿈 
+                tt.setText("Bye"); // 해결 방법
+                textview.setText("Bye"); // 이거는 됨
+                
+            }
+        });
+    }
+}
+```
 
 
 
@@ -394,6 +623,23 @@ activity_main.xml
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+activity_main.xml 
+
+```
+
+```
 
 
 
