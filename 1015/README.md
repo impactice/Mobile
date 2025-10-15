@@ -179,6 +179,12 @@ activity_main.xml
 
 <img width="890" height="675" alt="image" src="https://github.com/user-attachments/assets/71bb69ed-6069-48c7-8f9e-17223280eef2" />
 
+
+
+
+
+
+
 activity_main.xml 
 
 ```
