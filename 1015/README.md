@@ -700,11 +700,11 @@ ArrayAdapter adapter=new ArrayAdapter(this, android.R.layout.simple_spinner_item
 
 <img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/cffba85c-d3ef-4c6e-a1e1-4a2331b778c7" />
 
-
+팁! 선택하고 ctrl+/ 하면 전체 주석
 
 <img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/e55a511f-e413-434b-ba75-56168c69dd6f" />
 
-팁! 선택하고 ctrl+/ 하면 전체 주석
+
 
 <img width="1919" height="1033" alt="image" src="https://github.com/user-attachments/assets/cbfa3976-42a0-46f6-b918-d4f0038b6d0a" />
 
