@@ -714,7 +714,7 @@ ArrayAdapter adapter=new ArrayAdapter(this, android.R.layout.simple_spinner_item
 
 <img width="893" height="683" alt="image" src="https://github.com/user-attachments/assets/e33caa5e-4a3f-4dd9-bed0-9d7c5fcc06fa" />
 
-
+파일 만드는 법 중 하나 
 <img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/64040986-e6fc-4732-a510-6960cf33b6e9" />
 
 <img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/6f34e425-1797-40e8-93ac-4ef4c67a95a4" />
