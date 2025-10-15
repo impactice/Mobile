@@ -180,7 +180,16 @@ activity_main.xml
 <img width="890" height="675" alt="image" src="https://github.com/user-attachments/assets/71bb69ed-6069-48c7-8f9e-17223280eef2" />
 
 
+<img width="893" height="677" alt="image" src="https://github.com/user-attachments/assets/3f02e83e-3efa-42b1-b9d6-ec52f519cd43" />
 
+px로 설정할 시 휴대폰 해상도에 따라서 다르게 보일 수 있음 (반면 dp는 px보다 거의 비슷하게 보이게 됨)
+
+<img width="893" height="672" alt="image" src="https://github.com/user-attachments/assets/81471a1e-c31b-47b1-977f-a448e8881254" />
+
+글자의 경우에는 dp로 했을 때 글자 크기 조절이 안 될 수 있음 (반면 sp는 글자 변경이 가능)  
+
+
+-> 글자는 sp를 쓰는 게 좋고 화면은 dp가 더 나음  
 
 
 
