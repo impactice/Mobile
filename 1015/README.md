@@ -288,13 +288,102 @@ activity_main.xml
 
 <img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/d89e894f-40ab-42a2-9ae5-2ad2b0e6c10a" />
 
+--------------------------------------------------------------------------------------------------------
+
+
+<img width="894" height="679" alt="image" src="https://github.com/user-attachments/assets/38fc9113-cbf6-41c8-8d98-f6140c203382" />
 
 
 
 
+activity_main.xml 
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DEDEDE"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFAB15"
+        android:layout_gravity="center"
+        android:text=" center " />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF00FF"
+        android:layout_gravity="right"
+        android:text=" right " />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFF"
+        android:layout_gravity="left"
+        android:text=" left " />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFF00"
+        android:text=" 설정없음" />
+</LinearLayout>
+```
+
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/6747aa50-406c-4c23-8a6a-518c9b41a0af" />
 
 
+---------------------------------------------------------------------------------------------
 
+<img width="893" height="682" alt="image" src="https://github.com/user-attachments/assets/8d820c3c-4cb9-4a63-8ca5-45e089cf6330" />
+
+activity_main.xml 
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="회원이름"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="패스워드"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="회원email"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="회원정보"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="회원등록"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="메인"/>
+    </LinearLayout>
+</LinearLayout>
+```
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/28674473-0182-414f-865a-934a4b9255e7" />
 
 
 
