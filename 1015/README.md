@@ -634,19 +634,36 @@ public class MainActivity extends AppCompatActivity {
 
 ----------------------------------------------------------------------------------------
 
+<img width="889" height="673" alt="image" src="https://github.com/user-attachments/assets/d39b304a-516e-45e6-9d0f-ceef27bd9632" />
 
 
 
+<img width="895" height="677" alt="image" src="https://github.com/user-attachments/assets/1c15aba1-0462-407e-8a00-4d11a6bb276e" />
 
 
+MainActivity.java 
 
+```
+package com.example.project2;
 
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-
-
-
-
+public class MainActivity extends AppCompatActivity {
+    private String city[]={"서울", "부산", "울산", "창원"};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Spinner spinner=findViewById(R.id.spinner);
+        ArrayAdapter adapter=new ArrayAdapter(this, android.R.layout.simple_spinner_item, city);
+        spinner.setAdapter(adapter);
+    }
+}
+```
 
 
 
@@ -654,19 +671,175 @@ public class MainActivity extends AppCompatActivity {
 activity_main.xml 
 
 ```
-
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="50dp">
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:id="@+id/spinner"/>
+</LinearLayout>
 ```
 
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/f831904f-0e66-4f16-b9fe-45e3bcf12e8e" />
+
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/3b687d65-886a-4eca-acf2-801bf49c4238" />
+
+
+
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/2c29db92-93c7-454c-b4ff-5786b242a2ae" />
+
+```
+ArrayAdapter adapter=new ArrayAdapter(this, android.R.layout.simple_spinner_item, city);
+```
+이 코드 중에서 simple_spinner_item 이 부분에 커서를 하고 Ctrl+B를 누르면 밑에 화면이 뜬다
+
+
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/cffba85c-d3ef-4c6e-a1e1-4a2331b778c7" />
+
+
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/e55a511f-e413-434b-ba75-56168c69dd6f" />
+
+팁! 선택하고 ctrl+/ 하면 전체 주석
+
+<img width="1919" height="1033" alt="image" src="https://github.com/user-attachments/assets/cbfa3976-42a0-46f6-b918-d4f0038b6d0a" />
+
+
+
+------------------------------------------------------------------------------
+
+<img width="893" height="683" alt="image" src="https://github.com/user-attachments/assets/e33caa5e-4a3f-4dd9-bed0-9d7c5fcc06fa" />
+
+
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/64040986-e6fc-4732-a510-6960cf33b6e9" />
+
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/6f34e425-1797-40e8-93ac-4ef4c67a95a4" />
 
 
 
 
+MainActivity.java 
+
+```
+package com.example.project2;
+
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity{
+    private String city[]={"서울", "부산", "울산", "창원"};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Spinner spinner=findViewById(R.id.spinner);
+        ArrayAdapter adapter=new ArrayAdapter(this, R.layout.my_spinner_item, city);
+        spinner.setAdapter(adapter);
+    }
+}
+```
+
+activity_main.xml 
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="50dp">
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Spinner.Underlined" />
+</LinearLayout>
+```
+
+my_spinner_item.xml
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="#BCECEA" />
+```
+
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/91defc50-53c2-4f20-9790-5a8c19b61263" />
+
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/df99a3c7-2209-4edd-8298-cfe188a0eb77" />
+
+---------------------------------------------------------------------------------
+
+<img width="895" height="678" alt="image" src="https://github.com/user-attachments/assets/a2c7d91e-5e19-4aa5-be14-431721aaa3ce" />
+
+MainActivity.java 
+
+```
+package com.example.project2;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    private String city[]={"서울", "부산", "울산", "창원"};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Spinner spinner=findViewById(R.id.spinner);
+        ArrayAdapter adapter=new ArrayAdapter(this, android.R.layout.simple_spinner_item, city);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), city[position], Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
+}
+```
+
+activity_main.xml 
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="50dp">
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:id="@+id/spinner"/>
+</LinearLayout>
+```
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/f3154a18-8524-42f9-9a56-4ed2e2ae7bef" />
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/55c86322-59c4-4a96-ba44-4989831cdf3b" />
 
 
-
-
-
-
+-----------------------------------------------------------------------------
 
 
 
