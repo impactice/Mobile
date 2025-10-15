@@ -191,24 +191,102 @@ px로 설정할 시 휴대폰 해상도에 따라서 다르게 보일 수 있음
 
 -> 글자는 sp를 쓰는 게 좋고 화면은 dp가 더 나음  
 
+-----------------------------------------------------------------------------------------------
+
+<img width="889" height="673" alt="image" src="https://github.com/user-attachments/assets/f14b2976-af49-4190-8d3c-aa802cae7bc7" />
 
 
 
 activity_main.xml 
 
 ```
-
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#DEDEDE"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFAB15"
+        android:text="TextView1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF00FF"
+        android:layout_margin="20dp"
+        android:text="TextView2 (margin 20dp)"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00FFFF"
+        android:padding="20dp"
+        android:text="TextView3 (padding 20dp)"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFF00"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        android:text="TextView4 (padding 20dp, margin 20dp)"/>
+</LinearLayout>
 ```
 
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/1088b7c7-bf64-478a-a932-7df4472ba19d" />
+
+----------------------------------------------------------------------------------------------------
+
+<img width="895" height="673" alt="image" src="https://github.com/user-attachments/assets/5aa3f3a2-9216-45a0-93fc-54d901b8816f" />
 
 
+activity_main.xml 
 
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#DEDEDE" android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#FFAB15" android:gravity="center"
+        android:text=" center "/>
+    <TextView
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#FF00FF" android:gravity="right"
+        android:text=" right "/>
+    <TextView
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#00FFFF" android:gravity="left"
+        android:text=" left "/>
+    <TextView
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#FFFF00"
+        android:text=" 설정없음"/>
+    <TextView
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:background="#BB00BB"
+        android:gravity="top"
+        android:text=" top "/>
+    <TextView
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:background="#00BBBB"
+        android:gravity="bottom"
+        android:text=" bottom "/>
+    <TextView
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:background="#BBBB00"
+        android:gravity="top|center"
+        android:text=" top|center"/>
+    <TextView
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:background="#BBBBBB"
+        android:gravity="right|center"
+        android:text=" right|center"/>
+</LinearLayout>
+``` 
 
-
-
-
-
-
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/d89e894f-40ab-42a2-9ae5-2ad2b0e6c10a" />
 
 
 
