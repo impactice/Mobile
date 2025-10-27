@@ -201,8 +201,154 @@ public class MainActivity extends AppCompatActivity {
 
 <img width="1914" height="1028" alt="image" src="https://github.com/user-attachments/assets/c006bd35-8150-43ee-9671-b247d5ceb0bb" />
 
+--------------------------------------------
+
+activity_main.xml 
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal">
+    <CheckBox
+        android:id="@+id/checkbox_english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="영어대화가능"
+        android:textSize="20sp"/>
+    <CheckBox
+        android:id="@+id/checkbox_chinese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="중국어대화가능"
+        android:textSize="20sp"/>
+    <CheckBox
+        android:id="@+id/checkbox_jap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일본어대화가능"
+        android:textSize="20sp"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/radiobutton_korean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="한국인"
+            android:textSize="20sp"/>
+        <RadioButton
+            android:id="@+id/radiobutton_foreigner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="외국인"
+            android:textSize="20sp"/>
+    </RadioGroup>
+    <Button
+        android:id="@+id/button_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="입력내용표시"/>
+    <TextView
+        android:id="@+id/textview_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:hint="여기에결과표시됨"/>
+    <Button
+        android:id="@+id/button_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="초기화"/>
+</LinearLayout>
+```
+
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/8fb91c66-7492-4657-8da4-7c16aa035a86" />
+
+-----------------------------------------------
 
 
+activity_main.xml 
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal">
+    <CheckBox
+        android:id="@+id/checkbox_english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="영어대화가능"
+        android:textSize="20sp"/>
+    <CheckBox
+        android:id="@+id/checkbox_chinese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="중국어대화가능"
+        android:textSize="20sp"/>
+    <CheckBox
+        android:id="@+id/checkbox_jap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일본어대화가능"
+        android:textSize="20sp"/>
+    
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/radiobutton_korean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="한국인"
+            android:textSize="20sp"/>
+        <RadioButton
+            android:id="@+id/radiobutton_foreigner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="외국인"
+            android:textSize="20sp"/>
+        <RadioButton
+            android:id="@+id/radiobutton_allon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="N/A"
+            android:textSize="20sp"/>
+    </RadioGroup>
+    <Button
+        android:id="@+id/button_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="입력내용표시"/>
+    <TextView
+        android:id="@+id/textview_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:hint="여기에결과표시됨"/>
+    <Button
+        android:id="@+id/button_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="초기화"/>
+</LinearLayout>
+```
 
+<img width="1919" height="1032" alt="image" src="https://github.com/user-attachments/assets/35767252-95ce-4ae1-944c-6937ad4d4c1b" />
 
 
