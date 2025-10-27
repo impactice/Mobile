@@ -363,15 +363,96 @@ activity_main.xml
 
 activity_main.xml 
 ```
-
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="20dp"
+    android:gravity="center_horizontal">
+    <EditText
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:id="@+id/edittext" android:hint="이름"/>
+    <CheckBox
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:id="@+id/checkbox_english" android:text="영어대화가능"/>
+    <CheckBox
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:id="@+id/checkbox_chinese" android:text="중국어대화가능"/>
+    <RadioGroup
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/radiobutton_korean" android:text="한국인"/>
+        <RadioButton
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:id="@+id/radiobutton_foreigner" android:text="외국인"/>
+    </RadioGroup>
+    <Button
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:id="@+id/button_show" android:text="입력내용표시"/>
+    <TextView
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:id="@+id/textview_display" android:hint="여기에결과표시됨"/>
+    <CheckBox
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:id="@+id/checkbox_lock" android:text="LOCK"/>
+</LinearLayout>
 ```
 
 
 MainActivity.java 
 ```
+package com.example.project2;
 
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    private TextView textview_display;
+    private Button button_show;
+    private CheckBox checkbox_english, checkbox_chinese, checkbox_lock;
+    private RadioButton radiobutton_korean, radiobutton_foreigner;
+    private EditText edittext;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        edittext= findViewById(R.id.edittext);
+        textview_display= findViewById(R.id.textview_display);
+        button_show= findViewById(R.id.button_show);
+        checkbox_english= findViewById(R.id.checkbox_english);
+        checkbox_chinese= findViewById(R.id.checkbox_chinese);
+        checkbox_lock= findViewById(R.id.checkbox_lock);
+        radiobutton_korean= findViewById(R.id.radiobutton_korean);
+        radiobutton_foreigner= findViewById(R.id.radiobutton_foreigner);
+        checkbox_lock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                lockUnlock( ! isChecked) ;
+            }
+        });
+    }
+    private void lockUnlock(boolean isChecked) {
+        edittext.setEnabled(isChecked);
+        checkbox_english.setEnabled(isChecked);
+        checkbox_chinese.setEnabled(isChecked);
+        radiobutton_korean.setEnabled(isChecked);
+        radiobutton_foreigner.setEnabled(isChecked);
+        button_show.setEnabled(isChecked);
+        textview_display.setEnabled(isChecked);
+    }
+}
 ```
 
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/4d37d58d-afbe-407f-8814-22c097933f4c" />
 
 
 
