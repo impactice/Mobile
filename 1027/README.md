@@ -194,6 +194,12 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+- String 변경x
+- StringBuilder 변경o
+
+
+
+
 <img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/d45bf435-8505-4a00-894f-3e96a4c0ad7e" />
 
 
