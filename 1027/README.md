@@ -10,6 +10,9 @@
 
 <img width="894" height="680" alt="image" src="https://github.com/user-attachments/assets/a923ad16-360c-4886-bd13-e1a6e5199f77" />
 
+
+-----------------------------------------------------------------------------------------------------
+
 <img width="897" height="682" alt="image" src="https://github.com/user-attachments/assets/19b07f62-4d4a-4598-9020-eacd712f8288" />
 
 MainActivity.java 
@@ -68,7 +71,133 @@ activity_main.xml
 
 <img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/3fef32e6-0347-4b38-a681-c9519ef8aa4f" />
 
+스크롤 내릴 수 있음
+
 <img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/db679ff9-3696-4309-81b2-1001938c820a" />
+
+------------------------------------------------------------------------------
+
+<img width="888" height="675" alt="image" src="https://github.com/user-attachments/assets/7bbfa81a-81b8-4200-9cfc-83eda7afb202" />
+
+activity_main.xml 
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal">
+    <CheckBox
+        android:id="@+id/checkbox_english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="영어대화가능"
+        android:textSize="20sp"/>
+    <CheckBox
+        android:id="@+id/checkbox_chinese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="중국어대화가능"
+        android:textSize="20sp"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/radiobutton_korean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="한국인"
+            android:textSize="20sp"/>
+        <RadioButton
+            android:id="@+id/radiobutton_foreigner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="외국인"
+            android:textSize="20sp"/>
+    </RadioGroup>
+    <Button
+        android:id="@+id/button_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="입력내용표시"/>
+    <TextView
+        android:id="@+id/textview_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:hint="여기에결과표시됨"/>
+    <Button
+        android:id="@+id/button_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="초기화"/>
+</LinearLayout>
+``` 
+
+MainActivity.java 
+```
+package com.example.project2;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    private TextView textview_display;
+    private Button button_show, button_clear;
+    private CheckBox checkbox_english, checkbox_chinese;
+    private RadioButton radiobutton_korean, radiobutton_foreigner;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        textview_display=findViewById(R.id.textview_display);
+        button_show=findViewById(R.id.button_show);
+        button_clear=findViewById(R.id.button_clear);
+        checkbox_english=findViewById(R.id.checkbox_english);
+        checkbox_chinese=findViewById(R.id.checkbox_chinese);
+        radiobutton_korean=findViewById(R.id.radiobutton_korean);
+        radiobutton_foreigner=findViewById(R.id.radiobutton_foreigner);
+        button_show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StringBuilder sb=new StringBuilder();
+                sb.append("영어회화가능여부: "+checkbox_english.isChecked()+"\n");
+                sb.append("중국어회화가능여부: "+checkbox_chinese.isChecked()+"\n");
+                sb.append("한국인: "+radiobutton_korean.isChecked()+"\n");
+                sb.append("외국인: "+radiobutton_foreigner.isChecked()+"\n");
+                textview_display.setText(sb.toString());
+            }
+        });
+        button_clear.setOnClickListener((v)->button_clear_job());
+    }
+    private void button_clear_job() {
+        checkbox_english.setChecked(false);
+        checkbox_chinese.setChecked(false);
+        radiobutton_korean.setChecked(false);
+        radiobutton_foreigner.setChecked(false);
+        textview_display.setText("");
+    }
+}
+```
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/d45bf435-8505-4a00-894f-3e96a4c0ad7e" />
+
+
+한국인 선택하면 외국인 선택이 안됨(반대도 마찬가지) 
+
+<img width="1914" height="1028" alt="image" src="https://github.com/user-attachments/assets/c006bd35-8150-43ee-9671-b247d5ceb0bb" />
 
 
 
