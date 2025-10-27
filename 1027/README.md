@@ -77,7 +77,7 @@ activity_main.xml
 
 ------------------------------------------------------------------------------
 
-<img width="890" height="675" alt="image" src="https://github.com/user-attachments/assets/649bdb8f-9c44-4212-8aa5-537c2757a6fd" />
+<img width="890" height="675" alt="image" src="https://github.com/user-attachments/assets/9988113d-f240-44a4-8969-30cf0dbd0a72" />
 
 activity_main.xml 
 ```
