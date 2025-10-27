@@ -452,6 +452,8 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+- ~.setEnabled() 사용못하게
+
 <img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/4d37d58d-afbe-407f-8814-22c097933f4c" />
 
 
