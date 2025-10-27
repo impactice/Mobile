@@ -357,4 +357,24 @@ activity_main.xml
 
 <img width="1919" height="1032" alt="image" src="https://github.com/user-attachments/assets/35767252-95ce-4ae1-944c-6937ad4d4c1b" />
 
+---------------------------
+
+<img width="897" height="678" alt="image" src="https://github.com/user-attachments/assets/92eb80f7-7c53-420a-97cd-cb9dd0d4b398" />
+
+activity_main.xml 
+```
+
+```
+
+
+MainActivity.java 
+```
+
+```
+
+
+
+
+
+
 
