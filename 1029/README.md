@@ -389,6 +389,103 @@ activity_main.xml
 
 ----------------------------------------------------
 
+<img width="892" height="674" alt="image" src="https://github.com/user-attachments/assets/5121b92a-c40d-417c-a567-b425715ce44c" />
+
+
+MainActivity.java 
+```
+package com.example.project3;
+
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button button1=findViewById(R.id.button1);
+        Button button=findViewById(R.id.button);
+        TextView textview1=findViewById(R.id.textview1);
+        TextView textview_display=findViewById(R.id.textview_display);
+        button1.setTag(0);
+        textview1.setTag(0);
+        button1.setOnClickListener(this);
+        textview1.setOnClickListener(this);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s="button1="+button1.getTag()+", textview1="+textview1.getTag();
+                textview_display.setText(s);
+            }
+        });
+    }
+    @Override
+    public void onClick(View v) {
+        v.setTag((int)v.getTag()+1);
+    }
+}
+```
+
+
+activity_main.xml 
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal">
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="button1"
+        android:textSize="20sp"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textview1"
+        android:textSize="20sp"
+        android:layout_margin="10dp"/>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="터치횟수표시"
+        android:textSize="20sp"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/textview_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="10dp"/>
+</LinearLayout>
+```
+
+<img width="1919" height="1032" alt="image" src="https://github.com/user-attachments/assets/70eecfad-5d4f-4633-91f3-e8dd07dac6f4" />
+
+<img width="1919" height="1026" alt="image" src="https://github.com/user-attachments/assets/bf42298d-fbe5-4f2a-ba23-f24ec7f07911" />
+
+------------------------------------------------------------------------------------------------
+
 
 
 
