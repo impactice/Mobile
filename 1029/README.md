@@ -491,12 +491,113 @@ activity_main.xml
 
 MainActivity.java 
 ```
+package com.example.project3;
 
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        RadioButton v0=findViewById(R.id.v0);
+        RadioButton v1=findViewById(R.id.v1);
+        RadioButton e=findViewById(R.id.e);
+        RadioButton el=findViewById(R.id.el);
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s = "";
+                if(v0.isChecked()) s=v0.getText().toString();
+                if(v1.isChecked()) s=v1.getText().toString();
+                if(e.isChecked()) s=e.getText().toString();
+                if(el.isChecked()) s=el.getText().toString();
+                Toast.makeText(getApplicationContext(), "연료유형: " + s, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+}
 ```
 
 activity_main.xml 
 ```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:gravity="center_horizontal">
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="연료 유형 선택"
+        android:textSize="30sp"
+        android:layout_margin="30dp"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/v0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="휘발유"/>
+        <RadioButton
+            android:id="@+id/v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="경유"/>
+        <RadioButton
+            android:id="@+id/e"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="전기"/>
+        <RadioButton
+            android:id="@+id/el"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="기타"/>
+    </RadioGroup>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="제출"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"/>
 
+
+</LinearLayout>
 ```
+
+<img width="1915" height="1030" alt="image" src="https://github.com/user-attachments/assets/67b08095-2df7-432f-a999-cca93476d086" />
+
+
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/51be2325-da08-438d-8d90-7bb44df734a2" />
 
 
