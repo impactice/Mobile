@@ -117,6 +117,7 @@ activity_main.xml
 ------------------------------------------------------------------------------------------
 
 <img width="892" height="677" alt="image" src="https://github.com/user-attachments/assets/936186df-0316-4c0d-a786-68b46d68302f" /> 
+  
 람다식으로 변경1  
 
 
