@@ -15,7 +15,7 @@
 - Spinner  ㅡ 이 두개가 AdapterView -> Adapter -> Data source 
 - RadioGroup 
 
-
+---------------------------------------------------------------
 
 
 <img width="891" height="673" alt="image" src="https://github.com/user-attachments/assets/241a2493-2d11-4ad8-8e9e-30e628c3d201" />
