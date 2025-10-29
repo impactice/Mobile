@@ -486,10 +486,17 @@ activity_main.xml
 
 ------------------------------------------------------------------------------------------------
 
+<img width="896" height="676" alt="image" src="https://github.com/user-attachments/assets/ee834dbb-93ee-4907-9b99-8b09e75965b8" />
 
 
+MainActivity.java 
+```
 
+```
 
+activity_main.xml 
+```
 
+```
 
 
