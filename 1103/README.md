@@ -120,10 +120,16 @@ activity_main.xml
 
 <img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/a9d5e095-567f-4acf-b943-440755c86139" />
 
+----------------------------------------------------
 
+MainActivity.java 
+```
 
+```
 
+activity_main.xml 
+```
 
-
+```
 
 
