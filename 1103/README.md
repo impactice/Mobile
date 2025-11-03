@@ -122,6 +122,8 @@ activity_main.xml
 
 ----------------------------------------------------
 
+<img width="891" height="676" alt="image" src="https://github.com/user-attachments/assets/a54aa844-02e4-4225-ac28-5de54987ce7c" />
+
 MainActivity.java 
 ```
 
@@ -132,4 +134,56 @@ activity_main.xml
 
 ```
 
+
+---------------------------------------------
+
+<img width="894" height="683" alt="image" src="https://github.com/user-attachments/assets/55db30cf-2489-477c-ad3e-423075cc9796" />
+
+
+
+xml을 안 쓰는 버전
+
+<img width="890" height="678" alt="image" src="https://github.com/user-attachments/assets/c24962fd-b192-41f8-bb51-dcf6f5244406" />
+
+
+
+
+MainActivity.java 
+```
+package com.example.project3;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        LinearLayout ll = new LinearLayout(this);
+        ll.setLayoutParams(new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+        ));
+        ll.setBackgroundColor(Color.parseColor("#F0F0F0"));
+    }
+
+
+```
+
+하다가 마침
 
