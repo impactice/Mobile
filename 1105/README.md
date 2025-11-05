@@ -222,13 +222,86 @@ sp는 텍스트 크기 설정 가능 -> 텍스트 크기는 sp로 하고 다른 
 
 ## 004_사용자인터페이스기초2.pdf 
 
+<img width="986" height="750" alt="image" src="https://github.com/user-attachments/assets/6872fef8-9a3a-4348-be51-56bae66d9fcf" />
+
+
+MainActivity.java 
+```
+package com.example.project3;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity{
+    LinearLayout ll;
+    EditText edittext;
+    Button button_add, button_del;
+    TextView textview;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ll= new LinearLayout(this);
+        ll.setPadding(50,50,50,50);
+        ll.setOrientation(LinearLayout.VERTICAL);
+        Random random= new Random();
+        for (int i= 0; i< 5; i++) {
+            TextView tv = new TextView(this);
+            tv.setBackgroundColor(Color.rgb(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
+            ll.addView(tv); // 끝위치다음에삽입
+        }
+        LinearLayout ll2 = new LinearLayout(this);
+        edittext= new EditText(this); edittext.setHint("삽입인덱스");
+        button_add= new Button(this); button_add.setText("추가");
+        button_del= new Button(this); button_del.setText("삭제");
+        ll2.addView(edittext); ll2.addView(button_add); ll2.addView(button_del);
+        ll.addView(ll2);
+        setContentView(ll);
+        textview= new TextView(this);
+        textview.setText("Hi");
+        button_add.setOnClickListener(v -> button_add_job());
+        button_del.setOnClickListener(v -> button_del_job());
+    }
+    private void button_del_job() {
+        ll.removeView(textview); // 뷰삭제
+        button_add.setEnabled(true); button_del.setEnabled(false);
+    }
+    private void button_add_job() {
+        int index=Integer.parseInt(edittext.getText().toString());
+        ll.addView(textview, index); // 지정된index 위치에뷰삽입
+        button_add.setEnabled(false); button_del.setEnabled(true);
+    }
+}
+```
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/63d59b0f-204d-415f-9e07-9721d18fa806" />
+
+-----------------------------------------------------
+
+<img width="979" height="743" alt="image" src="https://github.com/user-attachments/assets/86a33fae-dba3-42ba-86ea-003b26a6d115" />
+
 
 
 MainActivity.java 
 ```
 
 ```
-
 
 
 activity_main.xml 
