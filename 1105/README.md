@@ -296,6 +296,11 @@ public class MainActivity extends AppCompatActivity{
 
 <img width="979" height="743" alt="image" src="https://github.com/user-attachments/assets/86a33fae-dba3-42ba-86ea-003b26a6d115" />
 
+<img width="985" height="752" alt="image" src="https://github.com/user-attachments/assets/e9aa02a2-c7ae-49e9-9d40-68d561dd66a0" />
+
+---------------------------------------------------------------
+
+<img width="985" height="745" alt="image" src="https://github.com/user-attachments/assets/04c808ef-4938-4502-b1f3-9f36dd2cdc77" />
 
 
 MainActivity.java 
