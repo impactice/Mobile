@@ -393,8 +393,155 @@ activity_main_radiogroup.xml
 
 <img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/fda8dc91-5d95-4929-8781-23fa348e4c3b" />
 
+--------------------------------------------------------------------------
 
+<img width="984" height="745" alt="image" src="https://github.com/user-attachments/assets/a0616b97-7c0a-4c09-8652-ed6e7ca2e416" />
 
+MainActivity.java 
+```
+package com.example.project3;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        LinearLayout ll=new LinearLayout(this);
+        ll.setOrientation(LinearLayout.VERTICAL);
+        CheckBox checkbox=new CheckBox(this);
+        checkbox.setText("정보수집동의");
+        ll.addView(checkbox);
+        setContentView(ll);
+        RadioGroup radiogroup=new RadioGroup(this);
+        radiogroup.setOrientation(LinearLayout.HORIZONTAL);
+        RadioButton rb1=new RadioButton(this);
+        rb1.setText("한번만");
+        RadioButton rb2=new RadioButton(this);
+        rb2.setText("항상");
+        radiogroup.addView(rb1);
+        radiogroup.addView(rb2);
+        rb1.setChecked(true); // 라디오그룹에 추가한 이후 체크 설정
+        checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) ll.addView(radiogroup); // 라디오 그룹 추가
+                else ll.removeView(radiogroup); // 라디오 그룹 제거
+            }
+        });
+    }
+}
+```
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/118593b1-cd1f-48da-a1c7-8d96bae63881" />
+
+-----------------------------------------------------------
+
+<img width="985" height="749" alt="image" src="https://github.com/user-attachments/assets/2ff64f78-140c-4592-bc48-ebcca9fa8d00" />
+
+activity_main.xml 
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="정보수집동의"/>
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="한번만"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="항상"/>
+    </RadioGroup>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="제출"/>
+</LinearLayout>
+```
+
+MainActivity.java 
+```
+package com.example.project3;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        RadioGroup radiogroup=findViewById(R.id.radiogroup);
+        CheckBox checkbox=findViewById(R.id.checkbox);
+        checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) radiogroup.setVisibility(View.VISIBLE);
+                else radiogroup.setVisibility(View.GONE);
+            }
+        });
+    }
+}
+```
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/46d3c406-a4bd-4672-bbf6-d0b3e8862f69" />
+
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/175bb7de-d3d5-4d89-aee8-7aab93520fb7" />
 
 
 
