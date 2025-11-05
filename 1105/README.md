@@ -305,14 +305,94 @@ public class MainActivity extends AppCompatActivity{
 
 MainActivity.java 
 ```
+package com.example.project3;
 
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        LinearLayout ll=findViewById(R.id.ll);
+        LayoutInflater inflater=getLayoutInflater();
+        RadioGroup radiogroup= (RadioGroup) inflater.inflate(R.layout.activity_main_radiogroup, null);
+        RadioButton rb1 = radiogroup.findViewById(R.id.rb1);
+        rb1.setChecked(true);
+        CheckBox checkbox=findViewById(R.id.checkbox);
+        checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) ll.addView(radiogroup);
+                else ll.removeView(radiogroup);
+            }
+        });
+    }
+}
 ```
 
 
 activity_main.xml 
 ```
-
+<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout
+    android:id="@+id/ll"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="정보수집동의"/>
+</LinearLayout>
 ```
+
+activity_main_radiogroup.xml
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<RadioGroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <RadioButton
+        android:id="@+id/rb1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="한번만"/>
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="항상"/>
+</RadioGroup>
+```
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/c36f5805-6fe2-4ee9-9ae5-ec45d731f060" />
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/fda8dc91-5d95-4929-8781-23fa348e4c3b" />
+
 
 
 
