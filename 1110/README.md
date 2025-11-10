@@ -453,9 +453,15 @@ public class MainActivity extends AppCompatActivity{
 
 ---------------------------------
 
+<img width="996" height="749" alt="image" src="https://github.com/user-attachments/assets/049d9187-bde0-4d26-96e9-ad674d557c89" />
 
-<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/48aa1faa-4de8-4a93-936e-ca7053c57636" />
+<img width="986" height="748" alt="image" src="https://github.com/user-attachments/assets/be519935-3a09-4a33-882e-bb7cdf5264f8" />
 
+--------------
+
+<img width="983" height="752" alt="image" src="https://github.com/user-attachments/assets/4ba2fa81-74d5-4c04-be2d-ae6c29f29407" />
+
+<img width="989" height="751" alt="image" src="https://github.com/user-attachments/assets/39ce607c-c98c-4dd8-bac1-f43189efa7a9" />
 
 
 
