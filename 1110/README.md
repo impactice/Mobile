@@ -106,6 +106,17 @@ activity_main.xml
 
 -----------------------------------------------------------------------------------
 
+<img width="1000" height="755" alt="image" src="https://github.com/user-attachments/assets/4693ca16-f965-4f34-85b1-821b56e5c24c" />
+
+<img width="984" height="752" alt="image" src="https://github.com/user-attachments/assets/f7cb54bc-e705-4a46-affb-931e253131a0" />
+
+<img width="986" height="748" alt="image" src="https://github.com/user-attachments/assets/5252ea61-a0f6-4513-843d-047ca1dbe855" />
+
+
+----------------------------------------------------
+
+
+
 MainActivity.java 
 ```
 
