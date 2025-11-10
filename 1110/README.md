@@ -265,5 +265,197 @@ activity_second.xml
 <img width="1919" height="1032" alt="image" src="https://github.com/user-attachments/assets/0bdcd30e-c198-4bb9-a5f8-f0bc52c6068b" />
 
 
+------------------------------------
+
+<img width="988" height="751" alt="image" src="https://github.com/user-attachments/assets/7b5b8ec2-f26c-41e5-8cde-b6aae47cf57a" />
+
+```
+Intent intent=new Intent(getApplicationContext(), Activity_Second.class);
+startActivity(intent);
+```
+
+```
+Intent intent = new Intent(Intent.ACTION_VIEW);
+intent.setData(Uri.parse("https://www.google.com"));
+startActivity(intent);
+```
+
+MainActivity.java 
+```
+package com.example.project3;
+
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button button_QuizStart=findViewById(R.id.button_QuizStart);
+        button_QuizStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://www.google.com"));
+                startActivity(intent);
+                //startActivity(new Intent(getApplication(), SecondActivity.class));
+            }
+        });
+    }
+}
+```
+
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/8b7bfcb0-3ace-40c8-b32c-cb90ab5d4ac0" />
+
+시작을 누르면 구글 접속
+
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/7b185052-126b-42a0-a3fc-fee9722b6af4" />
+
+-------------------------------
+
+<img width="987" height="748" alt="image" src="https://github.com/user-attachments/assets/c042f1fe-aac7-4f90-b58c-a68708f0dffc" />
+
+```
+ // 웹브라우저표시
+Intent intent= new Intent(Intent.ACTION_VIEW);
+intent.setData(Uri.parse("https://www.google.com"));
+startActivity(intent);
+```
+
+MainActivity.java 
+```
+package com.example.project3;
+
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button button_QuizStart=findViewById(R.id.button_QuizStart);
+        button_QuizStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 웹브라우저표시
+                Intent intent= new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://www.google.com"));
+                startActivity(intent);
+                //startActivity(new Intent(getApplication(), SecondActivity.class));
+            }
+        });
+    }
+}
+```
+
+```
+                // 지도표시
+                Intent intent= new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("geo:0,0?q=부산시청근처주차장"));
+                startActivity(intent);
+```
+
+MainActivity.java
+```
+package com.example.project3;
+
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button button_QuizStart=findViewById(R.id.button_QuizStart);
+        button_QuizStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 지도표시
+                Intent intent= new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("geo:0,0?q=부산시청근처주차장"));
+                startActivity(intent);
+                //startActivity(new Intent(getApplication(), SecondActivity.class));
+            }
+        });
+    }
+}
+```
+
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/2c0abb40-71a4-4bee-bc1d-612f1078c902" />
+
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/83230555-42b0-4257-bd2b-405b26f19df1" />
+
+---------------------------------
+
+
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/48aa1faa-4de8-4a93-936e-ca7053c57636" />
+
+
 
 
