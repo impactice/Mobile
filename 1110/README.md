@@ -152,6 +152,8 @@ activity_main.xml
  
 <img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/a12dd679-93c5-4a48-87e3-77ad7a991d52" />
 
+<img width="897" height="650" alt="image" src="https://github.com/user-attachments/assets/36d64eb5-e253-4d09-b158-61920de76a1a" />
+
 
 MainActivity.java 
 ```
