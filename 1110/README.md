@@ -259,5 +259,11 @@ activity_second.xml
 </LinearLayout>
 ```
 
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/2de56605-4a7f-45e3-a9c9-b75505f722fd" />
+
+
+<img width="1919" height="1032" alt="image" src="https://github.com/user-attachments/assets/0bdcd30e-c198-4bb9-a5f8-f0bc52c6068b" />
+
+
 
 
