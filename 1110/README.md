@@ -118,6 +118,39 @@ activity_main.xml
 
 <img width="985" height="751" alt="image" src="https://github.com/user-attachments/assets/6bb65653-b420-43c0-840b-e2c26e76ba4e" />
 
+-----------------------------------------------------
+
+<img width="993" height="755" alt="image" src="https://github.com/user-attachments/assets/e80f80db-cfef-4eb7-9271-4862aebad8f3" />
+
+
+---------------------------------------
+
+<img width="986" height="756" alt="image" src="https://github.com/user-attachments/assets/4760371a-8f6d-46b8-b3d4-26240c16ab10" />
+
+---------------------------------
+
+<img width="992" height="754" alt="image" src="https://github.com/user-attachments/assets/50973dda-0f08-4f32-93fe-97e756b9287f" />
+
+--------------------------------------
+
+<img width="989" height="749" alt="image" src="https://github.com/user-attachments/assets/b3249182-b1e5-4719-9b6b-d1a3e6e006ca" />
+
+------------------------
+
+## 005_인텐트.pdf
+
+<img width="985" height="748" alt="image" src="https://github.com/user-attachments/assets/a5035d77-f277-446f-8263-1467a6aeaa42" />
+
+-------------
+
+
+<img width="989" height="754" alt="image" src="https://github.com/user-attachments/assets/b0f83587-f1f9-49e7-9667-b85d79955a47" />
+
+
+ SecondActivity.java 만들기  
+
+ 
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/a12dd679-93c5-4a48-87e3-77ad7a991d52" />
 
 
 MainActivity.java 
