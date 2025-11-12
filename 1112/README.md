@@ -235,6 +235,231 @@ activity_main.xml
 
 <img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/5752d5e0-2862-40ef-b558-7fb5efbbd7fb" />
 
+<img width="1917" height="1028" alt="image" src="https://github.com/user-attachments/assets/b5d35d73-ae63-4b29-a5e6-3b0ef6ee226d" />
+
+---
+
+<img width="1124" height="853" alt="image" src="https://github.com/user-attachments/assets/3bd7bec0-9a69-4168-b5d0-3aefa080c460" />
+
+<img width="1127" height="848" alt="image" src="https://github.com/user-attachments/assets/58055ebe-624a-46dd-827f-057122bd3913" />
 
 
+-------
 
+<img width="1126" height="854" alt="image" src="https://github.com/user-attachments/assets/9f631704-ec87-4bf5-a539-fd15e80e219a" />
+
+<img width="1127" height="853" alt="image" src="https://github.com/user-attachments/assets/f33cd29b-9b8f-4e3f-a419-1ffed66ca808" />
+
+<img width="1122" height="853" alt="image" src="https://github.com/user-attachments/assets/6a85cc85-5da1-49c1-a238-e7a64c5bf122" />
+
+<img width="1125" height="852" alt="image" src="https://github.com/user-attachments/assets/e134d101-a36a-45f3-8f1d-f0ea1f3ee5f8" />
+
+
+--------------------------
+
+## 006_액티비티생명주기.pdf
+
+<img width="988" height="752" alt="image" src="https://github.com/user-attachments/assets/0da87971-4b24-4523-81d7-7a8ce0b19a6c" />
+
+onCreate() -> onStart() -> onResume() -> 실행 -> onPause() -> onStop() -> onDestory() -> 없음  
+그리고 onStop() -> onRestart() -> onStart() 
+
+MainActivity.java
+```
+package com.example.project4;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+    }
+    @Override
+    protected void onStart() { super.onStart(); }
+    @Override
+    protected void onResume() { super.onResume(); }
+    @Override
+    protected void onPause() { super.onPause();}
+    @Override
+    protected void onStop() { super.onStop(); }
+    @Override
+    protected void onDestroy() { super.onDestroy(); }
+}
+```
+
+---
+
+<img width="989" height="754" alt="image" src="https://github.com/user-attachments/assets/1ec59c93-b63f-4276-a73d-c3c9f313e90e" />
+
+---
+
+<img width="986" height="750" alt="image" src="https://github.com/user-attachments/assets/c87d18d4-5b66-463a-9fde-40aa69667885" />
+
+MainActivity.java
+```
+package com.example.project4;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Log.i("액티비티A ", "onCreate: ");
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("액티비티A ", "onStart: ");
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("액티비티A ", "onResume: ");
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("액티비티A ", "onPause: ");
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("액티비티A ", "onStop: ");
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("액티비티A ", "onDestroy: ");
+    }
+}
+```
+
+activity_main.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="50dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="액티비티 A"
+        android:textSize="30sp"/>
+</LinearLayout>
+```
+
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/fb226eee-8482-4be9-bf31-09d0bc12188b" />
+
+onCreate() - 실행됨 -> onStart() - 실행됨 -> onResume() - 실행됨 -> 실행(실행이 되었으니 앞에 꺼는 실행이 됨) 
+
+---
+
+<img width="987" height="755" alt="image" src="https://github.com/user-attachments/assets/d595a368-a0d7-462a-8b55-a8115aedc2f3" />
+
+MainActivity.java
+```
+package com.example.project4;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Log.i("액티비티A ", "onCreate: ");
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("액티비티A ", "onStart: ");
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("액티비티A ", "onResume: ");
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("액티비티A ", "onPause: ");
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("액티비티A ", "onStop: ");
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("액티비티A ", "onDestroy: ");
+    }
+}
+```
+
+
+activity_main.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="50dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="액티비티A"
+        android:textSize="30sp"/>
+</LinearLayout>
+```
+
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/0b43694b-0a54-4c22-a60e-d0cea7a4e0ce" />
+
+<img width="1919" height="1032" alt="image" src="https://github.com/user-attachments/assets/07b11404-fcbd-44b3-95ce-d0d26188a966" />
