@@ -17,3 +17,146 @@
 
 왜? 이렇게 해야 하는 가?  
 이렇게 하면 파일 이름이 변경 되는 동시에 선언 된 것도 바꾼다(개발자 일이 줄어든다)
+
+---------------------------
+
+<img width="816" height="619" alt="image" src="https://github.com/user-attachments/assets/bd23bb0e-1086-4078-bfbb-5578ac0f96ca" />
+
+Activity_First.java
+```
+package com.example.project3;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class Activity_First extends AppCompatActivity{
+    private int GET_COUNTRY_NAME=1;
+    private TextView textview_display;
+    private int counter=0;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_first);
+        setTitle("첫번째 액티비티");
+        textview_display=findViewById(R.id.textview_display);
+        Button button=findViewById(R.id.button_countryNameInput);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), Activity_Second.class);
+                intent.putExtra("COUNTER", ++counter);
+                startActivityForResult(intent, GET_COUNTRY_NAME);
+            }
+        });
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==GET_COUNTRY_NAME && resultCode==RESULT_OK){
+            textview_display.setText(data.getStringExtra("COUNTRY_NAME"));
+        }
+    }
+}
+```
+
+Activity_Second.java
+```
+package com.example.project3;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Activity_Second extends AppCompatActivity{
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        setTitle("두번째 액티비티");
+        TextView textview_display=findViewById(R.id.textview_display);
+        EditText edittext_countryName=findViewById(R.id.edittext_countryName);
+        Button button=findViewById(R.id.button_return);
+        Intent intent=getIntent();
+        edittext_countryName.setHint("입력시도 "+intent.getIntExtra("COUNTER",0)+"번째");
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent();
+                intent.putExtra("COUNTRY_NAME", edittext_countryName.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
+    }
+}
+```
+
+activity_first.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="100dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button android:id="@+id/button_countryNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="도시명 입력"
+        android:textSize="20sp"/>
+    <TextView
+        android:id="@+id/textview_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="도시명이 여기에 표시됨"
+        android:textSize="20sp"/>
+</LinearLayout>
+```
+
+
+activity_second.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="100dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText android:id="@+id/edittext_countryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"/>
+    <Button android:id="@+id/button_return"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="입력 완료"
+        android:textSize="20sp"/>
+
+</LinearLayout>
+```
+
+이거 오류가 안 잡힘...
+
+![Uploading image.png…]()
+
+위의 사진에서 코드에 줄이 그어져 있는 이유로는 쓰지 말라고... (더 좋고 효율적인 것이 나왔..)
+
+-------------------------------
+
+
+
