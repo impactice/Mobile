@@ -235,6 +235,6 @@ activity_main.xml
 
 <img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/5752d5e0-2862-40ef-b558-7fb5efbbd7fb" />
 
-![Uploading image.png…]()
+
 
 
