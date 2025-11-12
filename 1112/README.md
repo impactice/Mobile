@@ -88,7 +88,7 @@ public class Activity_Second extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         setTitle("두번째 액티비티");
-        TextView textview_display=findViewById(R.id.textview_display);
+        //TextView textview_display=findViewById(R.id.textview_display); //이거 없애래 필요 없는거
         EditText edittext_countryName=findViewById(R.id.edittext_countryName);
         Button button=findViewById(R.id.button_return);
         Intent intent=getIntent();
@@ -230,3 +230,11 @@ activity_main.xml
 </LinearLayout>
 
 ```
+
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/34002e1c-ff3b-4d1e-b62c-6f4336ea1dcb" />
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/5752d5e0-2862-40ef-b558-7fb5efbbd7fb" />
+
+![Uploading image.png…]()
+
+
