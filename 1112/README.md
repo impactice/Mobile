@@ -152,11 +152,79 @@ activity_second.xml
 
 이거 오류가 안 잡힘...
 
-![Uploading image.png…]()
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/0f6c3e7e-87dd-43fd-8be1-d3a64bcc4e08" />
+
 
 위의 사진에서 코드에 줄이 그어져 있는 이유로는 쓰지 말라고... (더 좋고 효율적인 것이 나왔..)
 
 -------------------------------
 
+<img width="1127" height="853" alt="image" src="https://github.com/user-attachments/assets/07162a2f-8988-447f-b74e-aa209162f2ec" />
 
+```
+package com.example.project3;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class Activity_First extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_first);
+        EditText e = findViewById(R.id.e);
+        Button b = findViewById(R.id.b);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Intent.ACTION_VIEW);
+                String s = "geo:0,0?q="+e.getText().toString();
+                intent.setData(Uri.parse(s));
+                startActivity(intent);
+            }
+        });
+    }
+}
+```
+
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="지도 검색"/>
+    <EditText
+        android:id="@+id/e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:hint="지도 검색어 입력"/>
+    <Button
+        android:id="@+id/b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="검색"/>
+
+</LinearLayout>
+
+```
