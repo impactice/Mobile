@@ -161,8 +161,10 @@ activity_second.xml
 
 <img width="1127" height="853" alt="image" src="https://github.com/user-attachments/assets/07162a2f-8988-447f-b74e-aa209162f2ec" />
 
+
+MainActivity.java
 ```
-package com.example.project3;
+package com.example.project4;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -170,7 +172,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -178,11 +179,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Activity_First extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first);
+        setContentView(R.layout.activity_main);
         EditText e = findViewById(R.id.e);
         Button b = findViewById(R.id.b);
         b.setOnClickListener(new View.OnClickListener() {
@@ -198,6 +199,7 @@ public class Activity_First extends AppCompatActivity {
 }
 ```
 
+activity_main.xml
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <LinearLayout
