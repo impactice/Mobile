@@ -103,6 +103,13 @@ public class MainActivity extends AppCompatActivity{
 
 ----
 
+## 007_리스트 뷰
+
+<img width="747" height="576" alt="image" src="https://github.com/user-attachments/assets/3ad24352-92e0-41e5-9afc-d621c99c3197" />
+
+----
+
+
 
 
 activity_main.xml
