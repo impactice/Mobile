@@ -270,11 +270,136 @@ public class MainActivity extends AppCompatActivity{
 
 -------
 
+<img width="903" height="686" alt="image" src="https://github.com/user-attachments/assets/3212619d-9d53-4157-b48a-a28ab3bfeef5" />
+
 
 MainActivity.java
 ```
+package com.example.project4;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity{
+    ListView listview;
+    String data1[]={"한국","스페인","중국","일본","캐나다","독일","프랑스"};
+    String data2[]={"Korea","Spain","China","Japan","Canada","Germany","France"};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        listview=new ListView(this);
+        MyAdapter adapter = new MyAdapter(this, data1, data2);
+        listview.setAdapter(adapter);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String v= (String) parent.getItemAtPosition(position);
+                Toast.makeText(getApplicationContext(), v+" 클릭", Toast.LENGTH_SHORT).show();
+            }
+        });
+        setContentView(listview);
+    }
+}
 ```
+
+MyAdapter.java
+```
+package com.example.project4;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+public class MyAdapter extends BaseAdapter {
+
+    String[] data1, data2;
+    LayoutInflater inflater;
+
+    public MyAdapter(Context context, String[] data1, String[] data2) {
+        this.inflater = LayoutInflater.from(context);
+        this.data1 = data1;
+        this.data2 = data2;
+    }
+
+    @Override
+    public int getCount() {
+        return data1.length;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return data1[position] + ", " + data2[position];
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null)
+            convertView = inflater.inflate(R.layout.listitem, parent, false);
+
+        TextView textview1 = convertView.findViewById(R.id.listitem_text1);
+        textview1.setText(data1[position]);
+
+        TextView textview2 = convertView.findViewById(R.id.listitem_text2);
+        textview2.setText(data2[position]);
+
+        return convertView;
+    }
+}
+```
+
+listitem.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView android:id="@+id/listitem_text1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:textSize="20sp"/>
+<TextView android:id="@+id/listitem_text2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:textSize="20sp"/>
+    </LinearLayout>
+``` 
+
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/6f550b21-537e-4bdc-8fc3-431d3368d474" />
+
+-----
+
+
 
 activity_main.xml
 ```
