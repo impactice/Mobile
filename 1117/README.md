@@ -70,23 +70,13 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        //RadioGroup radiogroup = new RadioGroup(this);
-        //radiogroup.setOrientation(LinearLayout.HORIZONTAL);
-        //RadioButton rb1 = new RadioButton(this);
-        // rb1.setText("확인");
-        //radiogroup.addView(rb1);
-        //radiogroup.setVisibility(View.GONE); // 처음에는 숨김
-        //ll.addView(radiogroup);
-
-        // 체크박스 리스너 설정
-        /*
-        checkbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                radiogroup.setVisibility(View.VISIBLE);
-            } else {
-                radiogroup.setVisibility(View.GONE);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button.setEnabled(false);
+                checkbox.setEnabled(false);
             }
-        }); */
+        });
 
         setContentView(ll);
     }
