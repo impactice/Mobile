@@ -59,8 +59,16 @@ public class MainActivity extends AppCompatActivity{
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
         button.setLayoutParams(buttonParams);
-
+        button.setVisibility(View.GONE); // 처음에는 숨김
         ll.addView(button);
+
+        checkbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                button.setVisibility(View.VISIBLE);
+            } else {
+                button.setVisibility(View.GONE);
+            }
+        });
 
         //RadioGroup radiogroup = new RadioGroup(this);
         //radiogroup.setOrientation(LinearLayout.HORIZONTAL);
