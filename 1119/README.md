@@ -399,9 +399,118 @@ listitem.xml
 
 -----
 
+<img width="899" height="690" alt="image" src="https://github.com/user-attachments/assets/4be050a2-2f7a-44ff-b9e2-68aeef5a8e1a" />
 
+MainActivity.java
+```
+package com.example.project4;
 
-activity_main.xml
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MainActivity extends AppCompatActivity{
+    ListView listview;
+    String data1[]={"A","B","C","D","E","F","G","H","I","J","K"};
+    String data2[]={"0","1","2","3","4","5","6","7","8","9","10"};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        listview=new ListView(this);
+        MyAdapter adapter=new MyAdapter(this, data1, data2);
+        listview.setAdapter(adapter);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String v= (String) parent.getItemAtPosition(position);
+                Toast.makeText(getApplicationContext(), v+" 클릭", Toast.LENGTH_SHORT).show();
+            }
+        });
+        setContentView(listview);
+    }
+}
 ```
 
+MyAdapter.java
 ```
+package com.example.project4;
+
+import android.content.Context;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+public class MyAdapter extends BaseAdapter {
+    String[] data1, data2;
+    LayoutInflater inflater;
+    public MyAdapter(Context context, String[] data1, String[] data2) {
+        // Activity activity= (Activity) context;
+        // this.inflater=activity.getLayoutInflater();
+        this.inflater=LayoutInflater.from(context);
+        this.data1=data1;
+        this.data2=data2;
+    }
+    @Override public int getCount() { return data1.length; }
+    @Override public Object getItem(int position) { return data1[position]+", "+data2[position]; }
+    @Override public long getItemId(int position) { return position; }
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if(convertView==null) {
+            convertView=inflater.inflate(R.layout.listitem, parent, false);
+            Log.i("MyAdapter", "NEW => "+position+"=>"+convertView);
+        }
+        else Log.i("MyAdapter", "REUSE =>"+position+"=>"+convertView);
+        TextView textview1=convertView.findViewById(R.id.listitem_text1);
+        textview1.setText(data1[position]);
+        TextView textview2=convertView.findViewById(R.id.listitem_text2);
+        textview2.setText(data2[position]);
+        return convertView;
+    }
+}
+```
+
+listitem.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView android:id="@+id/listitem_text1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="30dp"
+    android:textSize="30sp"/>
+<TextView android:id="@+id/listitem_text2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="30dp"
+    android:textSize="30sp"/>
+    </LinearLayout>
+```
+
+<img width="1919" height="1032" alt="image" src="https://github.com/user-attachments/assets/4bc9446f-7c12-467e-b9df-e88296fb222e" />
+
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/6d876cb6-2afe-45b5-8fd3-3ff48221d264" />
