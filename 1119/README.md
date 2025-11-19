@@ -196,6 +196,80 @@ public class MainActivity extends AppCompatActivity{
 길게 클릭
 <img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/844dd493-4cd5-46f5-8597-61d956ef5a97" />
 
+-----
+
+<img width="903" height="691" alt="image" src="https://github.com/user-attachments/assets/3a31fd25-ceb9-493b-a4e3-156ca3d18376" />
+
+MainActivity.java
+```
+package com.example.project4;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+
+public class MainActivity extends AppCompatActivity{
+    String location[]={"부산", "창원", "울산", "진주", "Pusan", "마산", "거제"};
+    LinkedList list=new LinkedList();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        list.addAll(Arrays.asList(location)); // 배열전체내용LinkedList에삽입
+        ListView listview=new ListView(this);
+        ArrayAdapter adapter=new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+        listview.setAdapter(adapter);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), list.get(position)+" 클릭", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), listview.getItemAtPosition(position).toString()+" 클릭", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), adapter.getItem(position).toString()+" 클릭", Toast.LENGTH_SHORT).show();
+            }
+        });
+        listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), list.get(position)+" 삭제됨", Toast.LENGTH_SHORT).show();
+                list.remove(position); // 리스트아이템삭제
+                adapter.notifyDataSetChanged();// 데이터변경이뷰에반영되도록알림
+                return true;
+            }
+        });
+        setContentView(listview);
+    }
+}
+```
+짧게 누르면 
+<img width="1918" height="1029" alt="image" src="https://github.com/user-attachments/assets/7dad352d-074e-4164-b5c3-e68b49d891cf" />
+
+길게 누르면 해당 항목 삭제
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/4e9b8261-6d63-4a5a-9cd1-95934031e8e3" />
+
+-------
+
 
 MainActivity.java
 ```
