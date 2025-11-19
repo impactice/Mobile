@@ -50,11 +50,17 @@ public class MainActivity extends AppCompatActivity{
 
         RadioGroup radiogroup = new RadioGroup(this);
         radiogroup.setOrientation(LinearLayout.HORIZONTAL);
-        Button button=new Button(this);
+        Button button = new Button(this);
         button.setText("확인");
+
+        // 버튼 크기 설정: 너비는 WRAP_CONTENT, 높이는 WRAP_CONTENT
+        LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        button.setLayoutParams(buttonParams);
+
         ll.addView(button);
-        radiogroup.setVisibility(View.GONE); // 처음에는 숨김
-        ll.addView(radiogroup);
 
         //RadioGroup radiogroup = new RadioGroup(this);
         //radiogroup.setOrientation(LinearLayout.HORIZONTAL);
