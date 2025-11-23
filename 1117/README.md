@@ -2,9 +2,6 @@
 <img width="1335" height="596" alt="image" src="https://github.com/user-attachments/assets/09925d38-18f2-40ec-bcb7-996de1323769" />
 
 
-과제 변경중....  
-
-
 MainActivity.java
 ```
 package com.example.project4;
@@ -33,9 +30,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Button button;
-
-        // 전체 레이아웃
+        
         LinearLayout ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.VERTICAL);
 
@@ -47,9 +42,7 @@ public class MainActivity extends AppCompatActivity{
         CheckBox checkbox = new CheckBox(this);
         checkbox.setText("체크하면 확인 버튼이 표시됩니다");
         ll.addView(checkbox);
-
-        RadioGroup radiogroup = new RadioGroup(this);
-        radiogroup.setOrientation(LinearLayout.HORIZONTAL);
+        
         Button button = new Button(this);
         button.setText("확인");
 
