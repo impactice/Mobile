@@ -378,7 +378,139 @@ activity_main.xml
 </LinearLayout>
 ```
 
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/5f809888-7719-44b2-8231-b86f63b568c2" />
 
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/a5cb0c91-3de7-4cd7-8dca-14d0e1fcf791" />
+
+--- 
+
+
+<img width="791" height="599" alt="image" src="https://github.com/user-attachments/assets/854c9794-b531-4f8c-9cdd-f69e6dab2d2b" />
+
+MainActivity.java
+```
+package com.example.project4;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.Dimension;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.nio.Buffer;
+import java.util.Arrays;
+import java.util.LinkedList;
+
+public class MainActivity extends AppCompatActivity{
+    Bitmap bitmap;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ImageView imageview= findViewById(R.id.imageview);
+        new Thread(()->{
+            try {
+                URL url=new URL("https://kscms.ks.ac.kr/resources/_Img/Common/flogo.png");
+                bitmap=BitmapFactory.decodeStream(url.openStream());
+                runOnUiThread(()->imageview.setImageBitmap(bitmap));
+            } catch (IOExceptione) {e.printStackTrace();}
+        }).start();
+    }
+}
+```
+
+
+activity_main.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="40dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+</LinearLayout>
+```
+
+AndroidManifest.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 인터넷 권한 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Project4"
+        tools:targetApi="31">
+
+        <!-- 메인 액티비티 (앱 실행 진입점) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 두 번째 액티비티 -->
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false" />
+
+    </application>
+</manifest>
+```
+
+왜 안 뜨는 지는 몰?루
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/2b77f1e0-9835-412e-b0c4-0c33c0f32164" />
+
+---
+
+## 010_저장소.pdf 
+
+<img width="745" height="565" alt="image" src="https://github.com/user-attachments/assets/99814376-40ae-49f1-8d62-35962d1067cd" />
 
 
 
