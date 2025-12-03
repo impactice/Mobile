@@ -276,6 +276,11 @@ activity_main.xml
 <img width="900" height="688" alt="image" src="https://github.com/user-attachments/assets/35ce061a-c36b-4a5b-8a5f-af0fb47bc5b4" />
 
 ---
+메뉴 만드는 법 
+<img width="904" height="693" alt="image" src="https://github.com/user-attachments/assets/616dbcd4-4ac5-4831-b9e4-8f6e4a25981e" />
+
+---
+
 
 <img width="906" height="687" alt="image" src="https://github.com/user-attachments/assets/7a9d60a9-cbc2-4463-afaa-137099a348f3" />
 
