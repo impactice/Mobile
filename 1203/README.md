@@ -612,6 +612,10 @@ activity_main.xml(수정함)
 
 --- 
 
+<img width="906" height="695" alt="image" src="https://github.com/user-attachments/assets/8072a2dc-aff1-401b-9b61-21da6c46b046" />
+
+---
+
 <img width="908" height="695" alt="image" src="https://github.com/user-attachments/assets/b1b6c52c-8cbf-4318-9272-7815ad5d49f9" />
 
 --- 
