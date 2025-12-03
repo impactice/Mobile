@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -38,8 +39,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.nio.Buffer;
 import java.util.Arrays;
 import java.util.LinkedList;
+
+
+
 
 public class MainActivity extends AppCompatActivity {
     ListView listview;
@@ -94,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lister.remove(v);
+                ll.addView(listview);
                 //return false;
             }
         });
@@ -113,7 +122,9 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        setContentView(ll);
+//        ll.addView(listview);   // 리스트뷰도 레이아웃에 추가
+        setContentView(ll);     // 루트 레이아웃만 지정
+
     }
 }
 ```
