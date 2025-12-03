@@ -271,6 +271,33 @@ activity_main.xml
 
 --- 
 
+## 009_메뉴,대화상자
+
+<img width="900" height="688" alt="image" src="https://github.com/user-attachments/assets/35ce061a-c36b-4a5b-8a5f-af0fb47bc5b4" />
+
+---
+
+<img width="906" height="687" alt="image" src="https://github.com/user-attachments/assets/7a9d60a9-cbc2-4463-afaa-137099a348f3" />
+
+--- 
+
+<img width="905" height="686" alt="image" src="https://github.com/user-attachments/assets/48a6ad07-5215-4cfb-a9c8-46ef957d2762" />
+
+--- 
+
+<img width="908" height="695" alt="image" src="https://github.com/user-attachments/assets/b1b6c52c-8cbf-4318-9272-7815ad5d49f9" />
+
+--- 
+
+<img width="909" height="690" alt="image" src="https://github.com/user-attachments/assets/ab42f3d1-a8da-4c24-a72a-280c645edeec" />
+
+--- 
+
+<img width="900" height="699" alt="image" src="https://github.com/user-attachments/assets/537df83b-337c-4958-a00c-940d0639a200" />
+
+--- 
+
+
 
 
 
