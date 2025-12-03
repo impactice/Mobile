@@ -279,6 +279,9 @@ activity_main.xml
 메뉴 만드는 법 
 <img width="904" height="693" alt="image" src="https://github.com/user-attachments/assets/616dbcd4-4ac5-4831-b9e4-8f6e4a25981e" />
 
+<img width="784" height="1044" alt="image" src="https://github.com/user-attachments/assets/726539dd-1bd9-40fc-b0b2-518fae1450d8" />
+
+
 ---
 
 
