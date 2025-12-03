@@ -284,6 +284,143 @@ activity_main.xml
 
 ---
 
+<img width="906" height="698" alt="image" src="https://github.com/user-attachments/assets/5e09d675-6ad3-456d-919b-cfae87c6fb9d" />
+
+MainActivity.java
+```
+package com.example.project4;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Gravity;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.Dimension;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.annotation.NonNull;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.nio.Buffer;
+import java.util.Arrays;
+import java.util.LinkedList;
+
+public class MainActivity extends AppCompatActivity {
+    EditText edittext_memo;
+    TextView textview_fontstyle;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        edittext_memo=findViewById(R.id.edittext_memo);
+        textview_fontstyle=findViewById(R.id.textview_fontstyle);
+        registerForContextMenu(textview_fontstyle);
+    }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.context_menu, menu);
+    }
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==R.id.contextmenu_italic){
+            edittext_memo.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
+        }
+        else if(item.getItemId()==R.id.contextmenu_bold){
+            edittext_memo.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        }
+        else if(item.getItemId()==R.id.contextmenu_normal){
+            edittext_memo.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+        }
+        return super.onContextItemSelected(item);
+    }
+}
+
+```
+
+activity_main.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button android:id="@+id/button_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="저장"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/textview_fontstyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="폰트스타일"
+            android:textSize="15sp"/>
+    </LinearLayout>
+    <EditText
+        android:id="@+id/edittext_memo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="메모입력"
+        android:textSize="20sp"/>
+</LinearLayout>
+```
+
+context_menu.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/contextmenu_italic" android:title="italic"/>
+    <item android:id="@+id/contextmenu_bold" android:title="bold"/>
+    <item android:id="@+id/contextmenu_normal" android:title="normal"/>
+</menu>
+```
+
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/705dd76e-7732-4e6f-a89e-a84743e245a1" />
+
+
+---
 
 <img width="906" height="687" alt="image" src="https://github.com/user-attachments/assets/7a9d60a9-cbc2-4463-afaa-137099a348f3" />
 
