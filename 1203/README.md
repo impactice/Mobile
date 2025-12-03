@@ -424,6 +424,181 @@ context_menu.xml
 
 <img width="918" height="698" alt="image" src="https://github.com/user-attachments/assets/27fc502c-f39b-487c-82e5-3d6535d05a00" />
 
+MainActivity.java
+```
+package com.example.project4;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.Dimension;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.annotation.NonNull;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.nio.Buffer;
+import java.util.Arrays;
+import java.util.LinkedList;
+
+public class MainActivity extends AppCompatActivity {
+    EditText edittext_memo;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        edittext_memo=findViewById(R.id.edittext_memo);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==R.id.optionsmenu_italic){
+            edittext_memo.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
+        }
+        else if(item.getItemId()==R.id.optionsmenu_bold){
+            edittext_memo.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        }
+        else if(item.getItemId()==R.id.optionsmenu_normal) {
+            edittext_memo.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
+
+```
+
+activity_main.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/edittext_memo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="메모입력"
+        android:textSize="20sp"/>
+</LinearLayout>
+```
+
+options_menu.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/optionsmenu_italic" android:title="italic"/>
+    <item android:id="@+id/optionsmenu_bold" android:title="bold"/>
+    <item android:id="@+id/optionsmenu_normal" android:title="normal"/>
+</menu>
+```
+
+AndroidManifest.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 인터넷 권한 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        tools:targetApi="31">
+
+        <!-- 메인 액티비티 (앱 실행 진입점) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 두 번째 액티비티 -->
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false" />
+
+    </application>
+</manifest>
+```
+
+<img width="1919" height="1032" alt="image" src="https://github.com/user-attachments/assets/db9f10bf-df85-4b40-adbb-6fdb1aca1d78" />
+
+activity_main.xml(수정함)
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:fitsSystemWindows="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/edittext_memo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="메모입력"
+        android:textSize="20sp"/>
+</LinearLayout>
+```
+
+<img width="1919" height="1032" alt="image" src="https://github.com/user-attachments/assets/e6415123-6545-4308-adf0-b68b33111aa8" />
+
+<img width="1919" height="1030" alt="image" src="https://github.com/user-attachments/assets/df67f747-6048-4f86-ab2b-9810b629093c" />
+
 
 ---
 
