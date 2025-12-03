@@ -264,4 +264,16 @@ activity_main.xml
 </LinearLayout>
 ```
 
+<img width="1919" height="1032" alt="image" src="https://github.com/user-attachments/assets/2a6cbc7d-0a4c-4f2d-a36b-2e08a0fcbeec" />
+
+작성된 파일은 여기서 볼수 있음 
+<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/def8cd7d-500d-4a1f-81c3-148e3b2cd111" />
+
+--- 
+
+
+
+
+
+
 
