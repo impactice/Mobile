@@ -347,12 +347,107 @@ public class MainActivity extends AppCompatActivity {
 
 ```
 (0,0) -------------> x +
-|
+|        (100,150)
 |
 |
 y +
 ```
-- 둘 다 플러스이다 
+- 둘 다 플러스이다
+
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/4ba62701-f0e3-498c-9063-8f14c4c9b03c" />
+
+
+### 커스텀 뷰, Canvas, Paint
+
+<img width="903" height="686" alt="image" src="https://github.com/user-attachments/assets/7353b503-e428-4843-84bb-c0b90d3fced4" />
+
+MyView.java
+```
+package com.example.project6;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+public class MyView extends View {
+    public MyView(Context context) {
+        super(context);
+    }
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        Paint paint=new Paint();
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(10f);
+        Path path=new Path();
+        paint.setColor(Color.BLUE);
+        path.moveTo(100,100);
+        path.lineTo(350,100);
+        path.lineTo(250,300);
+        path.moveTo(400,400);
+        path.lineTo(600,600);
+        path.lineTo(450,700);
+        canvas.drawPath(path, paint);
+        paint.setColor(Color.RED);
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawCircle(600,200,50,paint);
+        paint.setColor(Color.BLACK);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(5f);
+        paint.setTextSize(150);
+        canvas.drawText("안녕하세요", 100,1000, paint);
+    }
+}
+```
+
+MainActivity.java
+```
+package com.example.project6;
+
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TimePicker;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Calendar;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(new MyView(this));
+    }
+}
+```
+
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/5d53c65e-dfb8-48e4-92b1-3a9dfd6b56a8" />
 
 
 
