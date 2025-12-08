@@ -2,7 +2,6 @@
 
 <img width="1251" height="825" alt="image" src="https://github.com/user-attachments/assets/5b75a36c-e637-49d5-b02d-6b7fa5286772" />
 
-수정중...  
 MainActivity.java
 ```
 package com.example.project6;
@@ -65,56 +64,6 @@ public class MainActivity extends AppCompatActivity {
         deleteButton.setOnClickListener(v -> {
             if (!lister.isEmpty()) {
                 lister.remove(0);
-                adapter.notifyDataSetChanged();
-            }
-        });
-
-        setContentView(ll);
-    }
-}
-```
-
-```
-public class MainActivity extends AppCompatActivity {
-    ListView listview;
-    LinkedList<String> lister;
-    ArrayAdapter<String> adapter;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        lister = new LinkedList<>(Arrays.asList("아이템"));
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lister);
-
-        LinearLayout ll = new LinearLayout(this);
-        ll.setOrientation(LinearLayout.VERTICAL);
-
-        TextView testText = new TextView(this);
-        testText.setText("Test");
-        ll.addView(testText);
-
-        Button button = new Button(this);
-        button.setText("삽입");
-
-        Button button2 = new Button(this);
-        button2.setText("삭제");
-
-        listview = new ListView(this);
-        listview.setAdapter(adapter);
-        ll.addView(listview);
-
-        ll.addView(button);
-        ll.addView(button2);
-
-        button.setOnClickListener(v -> {
-            lister.add("새 아이템");
-            adapter.notifyDataSetChanged();
-        });
-
-        button2.setOnClickListener(v -> {
-            if (!lister.isEmpty()) {
-                lister.removeLast();
                 adapter.notifyDataSetChanged();
             }
         });
