@@ -5,59 +5,30 @@
 수정중...  
 MainActivity.java
 ```
-package com.example.project4;
+package com.example.project6;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
-import androidx.annotation.Dimension;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.nio.Buffer;
-import java.util.Arrays;
-import java.util.LinkedList;
-
-
-
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ListView listview;
-    LinkedList lister=new LinkedList();
-    String list[]={"아이템"};
+    ArrayList<String> lister;
+    ArrayAdapter<String> adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        lister.addAll(Arrays.asList(list));
+
+        lister = new ArrayList<>();
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lister);
 
         LinearLayout ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.VERTICAL);
@@ -66,65 +37,39 @@ public class MainActivity extends AppCompatActivity {
         testText.setText("Test");
         ll.addView(testText);
 
-        // 체크박스 생성
-//        CheckBox checkbox = new CheckBox(this);
-//        checkbox.setText("체크하면 확인 버튼이 표시됩니다");
-//        ll.addView(checkbox);
-
-        Button button = new Button(this);
-        button.setText("삽입");
-
-        Button button2 = new Button(this);
-        button2.setText("삭제");
-
-        listview=new ListView(this);
-        ArrayAdapter adapter=new ArrayAdapter(this, android.R.layout.simple_list_item_1, lister);
-        listview.setAdapter(adapter);
-
-        // 버튼 크기 설정: 너비는 WRAP_CONTENT, 높이는 WRAP_CONTENT
         LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        button.setLayoutParams(buttonParams);
-        //button.setVisibility(View.GONE); // 처음에는 숨김
-        ll.addView(button);
-        button2.setLayoutParams(buttonParams);
-        ll.addView(button2);
 
-//        checkbox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-//            if (isChecked) {
-//                button.setVisibility(View.VISIBLE);
-//            } else {
-//                button.setVisibility(View.GONE);
-//            }
-//        });
+        Button insertButton = new Button(this);
+        insertButton.setText("삽입");
+        insertButton.setLayoutParams(buttonParams);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ll.addView(listview);
-                //return false;
+        Button deleteButton = new Button(this);
+        deleteButton.setText("삭제");
+        deleteButton.setLayoutParams(buttonParams);
+
+        listview = new ListView(this);
+        listview.setAdapter(adapter);
+
+        ll.addView(insertButton);
+        ll.addView(deleteButton);
+        ll.addView(listview);
+
+        insertButton.setOnClickListener(v -> {
+            lister.add(0, "아이템");
+            adapter.notifyDataSetChanged();
+        });
+
+        deleteButton.setOnClickListener(v -> {
+            if (!lister.isEmpty()) {
+                lister.remove(0);
+                adapter.notifyDataSetChanged();
             }
         });
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                lister.remove(v);
-                //return true;
-            }
-        });
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                button.setEnabled(false);
-//                checkbox.setEnabled(false);
-//            }
-//        });
 
-//        ll.addView(listview);   // 리스트뷰도 레이아웃에 추가
-        setContentView(ll);     // 루트 레이아웃만 지정
-
+        setContentView(ll);
     }
 }
 ```
