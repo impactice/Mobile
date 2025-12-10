@@ -593,11 +593,250 @@ class DBHelper extends SQLiteOpenHelper {
 
 ---
 
-## SQLite DB: INSERT, SELECT, Cursor (2/2) 
+### SQLite DB: INSERT, SELECT, Cursor (2/2) 
 - 여기에 데이터 베이스를 볼 수 있는 방법이 적혀 있음 
 
 <img width="723" height="547" alt="image" src="https://github.com/user-attachments/assets/c6925be3-22b7-41c6-8661-b055491676a0" />
 
+### SQLite DB: DB 버전 변경   <- 최대 시험 범위  
+
+<img width="721" height="550" alt="image" src="https://github.com/user-attachments/assets/ab926890-3a9b-43aa-972c-31cd92274c8d" />
+
+### SQLite DB: UPDATE, DELETE
+
+<img width="732" height="558" alt="image" src="https://github.com/user-attachments/assets/d8f9cfe0-8edf-4065-bccc-26dcbf13ce4b" />
 
 
+### SQLite DB: 리스트뷰 연동, 커서 접근
 
+<img width="728" height="557" alt="image" src="https://github.com/user-attachments/assets/1263af0c-4b72-4cd0-9289-4ef8a31b43e5" />
+
+
+## 국립고궁박물관학술정보앱(기본-리스트뷰-이전다음버튼-클릭시이미지표시).txt
+
+MainActivity.java
+```
+public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
+    ListView listview;
+    Button button_prev, button_next;
+    ArrayAdapter adapter;
+    LinkedList titleList=new LinkedList();
+    LinkedList imageUrlList=new LinkedList();
+    int LOAD=0, PREV=1, NEXT=2;
+    int pageIndex=1, pageUnit=10, pageIndexMax=1000000; // pageIndexMax 설정 코드 구현 필요
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        button_prev=findViewById(R.id.button_prev);
+        button_next=findViewById(R.id.button_next);
+        listview=findViewById(R.id.listview);
+        adapter=new ArrayAdapter(this, android.R.layout.simple_list_item_1, titleList);
+        listview.setAdapter(adapter);
+        new Thread(()->displayData(LOAD)).start();
+        button_prev.setOnClickListener((v)->new Thread(()->displayData(PREV)).start());
+        button_next.setOnClickListener((v)->new Thread(()->displayData(NEXT)).start());
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getApplicationContext(), ContentActivity.class);
+                intent.putExtra("IMAGE_URL", (String) imageUrlList.get(position));
+                startActivity(intent);
+            }
+        });
+    }
+    private void displayData(int action) {
+        if(action==PREV) {
+            if(pageIndex==1) return;
+            pageIndex--;
+        }
+        if(action==NEXT) {
+            if(pageIndex==pageIndexMax) return;
+            pageIndex++;
+        }
+        String xmlString=downloadXml();
+        getInfoFromXml(xmlString);
+        runOnUiThread(()->{
+            adapter.notifyDataSetChanged();
+            setTitle(pageIndex+" / "+pageIndexMax);
+        });
+    }
+    private void getInfoFromXml(String xmlString) {
+        titleList.clear();
+        imageUrlList.clear();
+        String data="", title="", imageUrl="";
+        boolean jpgYN=false;
+        int totalCnt=0;
+        XmlPullParser parser= Xml.newPullParser();
+        try {
+            parser.setInput(new StringReader(xmlString));
+            for(int event=parser.getEventType(); event!=XmlPullParser.END_DOCUMENT; event=parser.next()){
+                if(event==XmlPullParser.TEXT) { data=parser.getText(); continue; }
+                if(event!=XmlPullParser.END_TAG) continue;
+                String tag=parser.getName();
+                if(tag.equals("totalCnt")) totalCnt=Integer.parseInt(data);
+                if(tag.equals("pageUnit")) pageUnit=Integer.parseInt(data);
+                if(tag.equals("title")) title=data;
+                if(tag.equals("fileNm")) jpgYN=data.endsWith(".jpg");
+                if(tag.equals("linkUrl") && jpgYN) imageUrl=data.trim();
+                if(tag.equals("list")) {
+                    titleList.add(title);
+                    imageUrlList.add(imageUrl);
+                }
+            }
+            pageIndexMax=totalCnt/pageUnit;
+            if(totalCnt%pageUnit>0) pageIndexMax++;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private String downloadXml() {
+        StringBuilder sb=new StringBuilder();
+        try {
+            handleSSL();
+            URL url=new URL("https://www.gogung.go.kr/openApiPublication.do?pageIndex="+pageIndex);
+            BufferedReader si=new BufferedReader(new InputStreamReader(url.openStream()));
+            for(String line=si.readLine(); line!=null; line=si.readLine()) sb.append(line);
+            si.close();
+        } catch (Exception e) { throw new RuntimeException(e); }
+        return sb.toString();
+    }
+    // HTTPS 접속에서 아래 오류 발생 시 대응
+    // java.security.cert.CertificateException: java.security.cert.CertPathValidatorException: Trust anchor for certification path not found.
+    // Reference: https://copyprogramming.com/howto/way-to-ignore-ssl-certificate-using-httpsurlconnection
+    private void handleSSL() throws KeyManagementException, NoSuchAlgorithmException {
+        SSLContext sslContext= SSLContext.getInstance("TLS");
+        sslContext.init(null, new TrustManager[]{
+                new X509TrustManager() {
+                    @Override public void checkClientTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {}
+                    @Override public void checkServerTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {}
+                    @Override public X509Certificate[] getAcceptedIssuers() {return new X509Certificate[]{};}
+                }
+        },null);
+        HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
+    }
+}
+```
+
+activity_main.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/button_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="이전"/>
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="다음"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:padding="10dp"
+            android:text="본 저작물은 국립고궁박물관 공공데이터개방 API를 이용하여 제작되었습니다(링크: https://www.gogung.go.kr/gogung/main/contents.do?menuNo=800153)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>
+
+```
+
+ContentActivity.java 
+```
+public class ContentActivity extends AppCompatActivity {
+    ImageView imageview;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_content);
+        imageview=findViewById(R.id.imageview);
+        Intent intent=getIntent();
+        String imageUrl=intent.getStringExtra("IMAGE_URL");
+        new Thread(()->displayImage(imageUrl)).start();
+    }
+
+    private void displayImage(String imageUrl) {
+        try {
+            URL url=new URL(imageUrl);
+            Bitmap bitmap= BitmapFactory.decodeStream(url.openStream());
+            runOnUiThread(()->imageview.setImageBitmap(bitmap));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+```
+
+ 
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/imageview"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.test">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".ContentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
