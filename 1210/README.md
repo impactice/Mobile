@@ -591,8 +591,12 @@ class DBHelper extends SQLiteOpenHelper {
 
 <img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/2a097776-4325-47ca-8775-e5b074e258fa" />
 
+---
 
+## SQLite DB: INSERT, SELECT, Cursor (2/2) 
+- 여기에 데이터 베이스를 볼 수 있는 방법이 적혀 있음 
 
+<img width="723" height="547" alt="image" src="https://github.com/user-attachments/assets/c6925be3-22b7-41c6-8661-b055491676a0" />
 
 
 
